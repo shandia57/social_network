@@ -4,7 +4,7 @@
    "port": 3306,
    "username": "root",
    "password": "",
-   "database": "projet_tut_gp4",
+   "database": "social_network",
    "synchronize": true,
    "logging": false,
    "entities": [
