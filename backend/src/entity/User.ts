@@ -1,8 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToMany } from "typeorm";
-import { Folder } from "./Folder";
 
-@Entity({ name: "clients" })
-export class Client {
+@Entity({ name: "users" })
+export class User {
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -21,6 +20,4 @@ export class Client {
     @Column({ type: "datetime" })
     created_at: Date;
 
-    @ManyToMany(() => Folder, folder => folder.client_)
-    folder_: Folder[];
 }

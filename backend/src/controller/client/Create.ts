@@ -1,10 +1,10 @@
 import { connection } from "../../index";
-import * as create from "../../Repository/client/Create";
+import * as repository from "../../Repository/user/Create";
 
-exports.create = (request: any, results: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { message?: string; error?: any; }): void; new(): any; }; }; }) => {
+exports.create = (request: any, results: any) => {
     connection
         .then(async connection => {
-            create.insertClient(request, connection)
+            repository.insertUser(request, connection)
         })
         .then(() => results.status(201))
         .catch(error => {

@@ -1,4 +1,4 @@
-const DATA_CLIENTS = [
+const DATA_USERS = [
     {
         "id": 1,
         "lastname": "Martin",
@@ -82,4 +82,4 @@ const DATA_CLIENTS = [
 ];
 
 
-export default DATA_CLIENTS; 
+export default DATA_USERS; 

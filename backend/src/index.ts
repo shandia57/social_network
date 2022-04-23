@@ -7,9 +7,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const PORT = 8000;
 
-const clientRoutes = require('./routes/clients');
-const eventRoutes = require('./routes/events');
-const folderRoutes = require('./routes/folders');
+const userRoutes = require('./routes/users');
+
 
 
 export const connection = createConnection()
@@ -25,9 +24,7 @@ app.use((req, res, next) => {
 });
 
 
-app.use("/api/clients", clientRoutes)
-app.use("/api/events", eventRoutes)
-app.use("/api/folders", folderRoutes);
+app.use("/api/users", userRoutes)
 
 
 

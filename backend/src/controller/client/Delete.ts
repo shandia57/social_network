@@ -1,9 +1,9 @@
 import { connection } from "../../index";
-import * as deleteClient from "../../Repository/client/Delete";
+import * as repository from "../../Repository/user/Delete";
 
-exports.delete = (request: { params: { id: any; }; }, results: any) => {
+exports.delete = (request: any, results: any) => {
     connection.then(async connection => {
-        deleteClient.deleteClient(request, connection, request.params.id)
+        repository.deleteUser(request, connection, request.params.id)
     })
         .then(() => results.status(202))
         .catch(error => {
