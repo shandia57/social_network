@@ -1,6 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToMany } from "typeorm";
 
 @Entity({ name: "users" })
+
 export class User {
     @PrimaryGeneratedColumn()
     id: number;
@@ -11,13 +12,10 @@ export class User {
     @Column({ length: 100 })
     lastname: string;
 
-    @Column({ length: 255 })
-    address: string;
-
     @Column({ type: "date" })
     birthday: Date;
 
-    @Column({ type: "datetime" })
-    created_at: Date;
+    @Column({ length: "255" })
+    email: string;
 
 }

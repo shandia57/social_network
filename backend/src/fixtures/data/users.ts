@@ -3,81 +3,71 @@ const DATA_USERS = [
         "id": 1,
         "lastname": "Martin",
         "firstname": "Florian",
-        "address": "Marly",
+        "email": "florian@hotmail.fr",
         "birthday": "2000-09-19",
-        "created_at": null
     },
     {
         "id": 2,
         "lastname": "Schmitt",
         "firstname": "Alexandre",
-        "address": "Farébersviller",
+        "email": "alexandre@hotmail.fr",
         "birthday": "1996-12-23",
-        "created_at": null
     },
     {
         "id": 3,
         "lastname": "Roudane",
         "firstname": "Nouaaman",
-        "address": "Metz",
+        "email": "nouaaman@hotmail.fr",
         "birthday": "1998-02-12",
-        "created_at": null
     },
     {
         "id": 4,
         "lastname": "Demuru",
         "firstname": "Nathan",
-        "address": "Metz",
+        "email": "nathan@hotmail.fr",
         "birthday": "2001-07-19",
-        "created_at": null
     },
     {
         "id": 5,
         "lastname": "Chalopin",
         "firstname": "Alexy",
-        "address": "Moulins-lès-Metz",
+        "email": "alexy@hotmail.fr",
         "birthday": "2000-07-21",
-        "created_at": null
     },
     {
         "id": 6,
         "lastname": "Idilbi",
         "firstname": "Abdoul Alim",
-        "address": "Thionville",
+        "email": "abdoul@hotmail.fr",
         "birthday": "2000-01-01",
-        "created_at": null
     },
     {
         "id": 7,
         "lastname": "Cazzoli",
         "firstname": "Valentin",
-        "address": "Villers-sur-meuse",
+        "email": "valentin@hotmail.fr",
         "birthday": "1999-09-29",
-        "created_at": null
     },
     {
         "id": 8,
         "lastname": "Bonazzi",
         "firstname": "Pierre-Jean",
-        "address": "Saint-Nabord",
+        "email": "pierreJean@hotmail.fr",
         "birthday": "2001-03-02",
-        "created_at": null
     },
     {
         "id": 9,
         "lastname": "Breuil",
         "firstname": "Allan",
-        "address": "Hayange",
+        "email": "allan@hotmail.fr",
         "birthday": "1990-10-22",
-        "created_at": null
     },
     {
         "id": 10,
         "lastname": "Tramoy",
         "firstname": "Florian",
-        "address": "Bourges",
+        "email": "florianTramoy@hotmail.fr",
         "birthday": "1994-06-11",
-        "created_at": null
     }
 ];
 
