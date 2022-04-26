@@ -14,19 +14,22 @@ import Home from './pages/home/Home';
 import Empty from './components/layout/Empty';
 import Signin from './pages/auth/signin/Signin';
 import Signup from './pages/auth/signup/Signup';
-
+import App from './pages/app';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Empty />}>
+          <Route index element={<App />} />
+        </Route>
+        <Route path="/auth" element={<Empty />}>
           <Route index element={<Signin />} />
           <Route path="signup" element={<Signup />} />
-          <Route path="home" element={<Home />} />
+          <Route path="signin" element={<Signup />} />
         </Route>
-        <Route path="">
-
+        <Route path="/homepage" element={<Empty />}>
+          <Route index element={<Home />} />
         </Route>
       </Routes>
     </BrowserRouter>
