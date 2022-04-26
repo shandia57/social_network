@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import { connection } from './../index';
+import { connection } from '../../index';
 
 import DATA_USERS from "./data/users";
 import UserInterface from "../interface/UserInterface";

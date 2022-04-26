@@ -1,5 +1,5 @@
 import { connection } from "../../index";
-import * as repository from "../../Repository/user/Read";
+import * as repository from "../../dataBase/Repository/user/Read";
 
 
 exports.findAll = (request: any, results: any) => {

@@ -4,6 +4,7 @@ interface UserInterface {
     lastname: string,
     birthday: string,
     email: string,
+    password: string
 }
 
 export default UserInterface;

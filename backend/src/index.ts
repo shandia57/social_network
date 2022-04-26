@@ -7,9 +7,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const PORT = 8000;
 
-const userRoutes = require('./routes/users');
-
-
+const usersRoutes = require('./routes/users');
+const authRoutes = require('./routes/auth');
 
 export const connection = createConnection()
 
@@ -24,8 +23,8 @@ app.use((req, res, next) => {
 });
 
 
-app.use("/api/users", userRoutes)
-
+app.use("/api/users", usersRoutes)
+app.use("/api/auth", authRoutes)
 
 
 app.listen(PORT, () => {

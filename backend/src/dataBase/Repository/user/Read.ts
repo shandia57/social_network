@@ -1,4 +1,3 @@
-import { connection } from '../../index';
 import "reflect-metadata";
 import { User } from "../../entity/User";
 

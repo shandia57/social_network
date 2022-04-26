@@ -5,6 +5,7 @@ const DATA_USERS = [
         "firstname": "Florian",
         "email": "florian@hotmail.fr",
         "birthday": "2000-09-19",
+        "password": "test"
     },
     {
         "id": 2,
@@ -12,6 +13,7 @@ const DATA_USERS = [
         "firstname": "Alexandre",
         "email": "alexandre@hotmail.fr",
         "birthday": "1996-12-23",
+        "password": "test"
     },
     {
         "id": 3,
@@ -19,6 +21,7 @@ const DATA_USERS = [
         "firstname": "Nouaaman",
         "email": "nouaaman@hotmail.fr",
         "birthday": "1998-02-12",
+        "password": "test"
     },
     {
         "id": 4,
@@ -26,6 +29,7 @@ const DATA_USERS = [
         "firstname": "Nathan",
         "email": "nathan@hotmail.fr",
         "birthday": "2001-07-19",
+        "password": "test"
     },
     {
         "id": 5,
@@ -33,6 +37,7 @@ const DATA_USERS = [
         "firstname": "Alexy",
         "email": "alexy@hotmail.fr",
         "birthday": "2000-07-21",
+        "password": "test"
     },
     {
         "id": 6,
@@ -40,6 +45,7 @@ const DATA_USERS = [
         "firstname": "Abdoul Alim",
         "email": "abdoul@hotmail.fr",
         "birthday": "2000-01-01",
+        "password": "test"
     },
     {
         "id": 7,
@@ -47,6 +53,7 @@ const DATA_USERS = [
         "firstname": "Valentin",
         "email": "valentin@hotmail.fr",
         "birthday": "1999-09-29",
+        "password": "test"
     },
     {
         "id": 8,
@@ -54,6 +61,7 @@ const DATA_USERS = [
         "firstname": "Pierre-Jean",
         "email": "pierreJean@hotmail.fr",
         "birthday": "2001-03-02",
+        "password": "test"
     },
     {
         "id": 9,
@@ -61,6 +69,7 @@ const DATA_USERS = [
         "firstname": "Allan",
         "email": "allan@hotmail.fr",
         "birthday": "1990-10-22",
+        "password": "test"
     },
     {
         "id": 10,
@@ -68,6 +77,7 @@ const DATA_USERS = [
         "firstname": "Florian",
         "email": "florianTramoy@hotmail.fr",
         "birthday": "1994-06-11",
+        "password": "test"
     }
 ];
 

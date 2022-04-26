@@ -1,5 +1,5 @@
 import { connection } from "../../index";
-import * as repository from "../../Repository/user/Create";
+import * as repository from "../../dataBase/Repository/user/Create";
 
 exports.create = (request: any, results: any) => {
     connection
