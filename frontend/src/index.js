@@ -19,15 +19,21 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
+
+      {/* Controller Route */}
       <Routes>
         <Route path="/" element={<Empty />}>
           <Route index element={<App />} />
         </Route>
+
+        {/* Auth routes */}
         <Route path="/auth" element={<Empty />}>
           <Route index element={<Signin />} />
           <Route path="signup" element={<Signup />} />
           <Route path="signin" element={<Signup />} />
         </Route>
+
+        {/* Others pages */}
         <Route path="/homepage" element={<Empty />}>
           <Route index element={<Home />} />
         </Route>
