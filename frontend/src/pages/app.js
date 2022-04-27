@@ -1,6 +1,14 @@
-import Spinner from '../components/spinner/Spinner';
-
+import { useEffect } from "react";
+import Spinner from '../components/layout/spinner/Spinner';
+import { useNavigate } from 'react-router-dom';
 const App = () => {
+    const navigate = useNavigate();
+
+
+    useEffect(() => {
+        navigate("/auth");
+    }, [])
+
 
     return (
         <div>

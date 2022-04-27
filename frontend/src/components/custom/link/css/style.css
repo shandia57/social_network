@@ -1,0 +1,21 @@
+.link-button{
+    color: white;
+    border: none;
+    padding: 20px;
+    margin: 5% auto;
+    width: 50%;
+    font-weight: 500;
+    text-decoration: none;
+
+    /* Magic */
+    background-image: linear-gradient( rgb(34, 34, 34), rgb(34, 34, 34) 50%, rgb(230, 230, 230) 50%, rgb(230, 230, 230));
+    background-size: 100% 200%;
+    -webkit-transition: background-position .3s;
+    transition: background-position .3s;
+
+}
+
+.link-button:hover {
+    background-position: left bottom;
+    color: rgb(34, 34, 34)
+}

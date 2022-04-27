@@ -1,0 +1,21 @@
+.signin-page{
+    height: 90vh;
+    width: 90%;
+    background-color: #fff;
+    padding:20px;
+    border-radius: 20px;
+    margin: 2% auto;
+}
+
+.signin-page .container-img{
+    width: 20%
+}
+
+.signinForm{
+    display: grid; 
+    justify-content: center;
+}
+
+.signin-page-mainContainer{
+    margin-top: 5%;
+}

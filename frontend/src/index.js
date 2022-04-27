@@ -11,7 +11,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Pages
 import Home from './pages/home/Home';
-import Empty from './components/layout/Empty';
+import Empty from './components/layout/navigation/Empty';
+import Auth from './pages/auth/Auth';
 import Signin from './pages/auth/signin/Signin';
 import Signup from './pages/auth/signup/Signup';
 import App from './pages/app';
@@ -28,9 +29,9 @@ root.render(
 
         {/* Auth routes */}
         <Route path="/auth" element={<Empty />}>
-          <Route index element={<Signin />} />
+          <Route index element={<Auth />} />
           <Route path="signup" element={<Signup />} />
-          <Route path="signin" element={<Signup />} />
+          <Route path="signin" element={<Signin />} />
         </Route>
 
         {/* Others pages */}
