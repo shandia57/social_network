@@ -1,0 +1,27 @@
+@media screen and (max-width: 700px){
+    .signup-page{
+        /* height: 0 auto ; */
+        width: 100%;
+        border-radius: 0;
+        margin: 0 ;
+    }
+    
+    .signup-page .container-img{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .signup-page .container-img img{
+        width: 60%;
+    }
+
+    .container-title-form{
+        margin-top: 10%;
+    }
+    
+    .signUpForm{
+        display: grid; 
+        justify-content: center;
+    }
+}

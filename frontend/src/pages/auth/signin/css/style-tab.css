@@ -1,0 +1,6 @@
+@media screen and  (min-width:701px) and ( max-width: 1100px) {
+    
+    .signin-page-mainContainer{
+        margin-top: 20%;
+    }
+}

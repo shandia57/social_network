@@ -1,4 +1,5 @@
 import "./css/style.css";
+import "./css/style-mobile.css";
 
 const LabelInput = (props) => {
 

@@ -1,6 +1,14 @@
+import {Link} from "react-router-dom";
+
+// images
 import logo from "./../../../images/logo/logo.svg"
 
+// css
 import "./css/style.css";
+import "./css/style-mobile.css";
+import "./css/style-tab.css";
+
+// custom components
 import ButtonSubmit from "../../../components/custom/button/submit/ButtonSubmit";
 import LabelInput from "../../../components/custom/label-input/LabelInput";
 
@@ -15,8 +23,13 @@ const Signup = () => {
     return (
         <div className="signup-page">
             <div className="container-img">
-                <img src={logo} alt="" />
+                <Link to="/auth"> 
+                    <img src={logo} alt="" /> 
+                </Link>
+                
             </div>
+
+            <div className="container-title-form">
             <h1 className="text-center">Créer un compte</h1>
             <p className="text-center">Vous n'êtes pas encore enregistré ? Inscrivez-vous !</p>
 
@@ -65,7 +78,8 @@ const Signup = () => {
                     />
                     <ButtonSubmit text="Inscription" />
                    </div>
-                </form>
+            </form>
+            </div>
         </div>
     );
 }

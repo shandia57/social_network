@@ -5,6 +5,7 @@
     width: 100%;
     font-weight: 500;
     text-decoration: none;
+    margin-top:2%;
 
     /* Magic */
     background-image: linear-gradient( rgb(34, 34, 34), rgb(34, 34, 34) 50%, rgb(230, 230, 230) 50%, rgb(230, 230, 230));

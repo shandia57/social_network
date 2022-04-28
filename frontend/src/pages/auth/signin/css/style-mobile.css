@@ -1,0 +1,25 @@
+@media screen and ( max-width: 700px){
+    .signin-page{
+        height: 100vh ;
+        width: 100% ;
+        background-color: #fff;
+        padding:20px;
+        border-radius: 0;
+        margin: 0 auto;
+    }
+    
+    .signin-page .container-img{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+    }
+    .signin-page .container-img img{
+        width: 60%
+    }
+    
+    
+    .signin-page-mainContainer{
+        margin-top: 30%;
+    }
+}
