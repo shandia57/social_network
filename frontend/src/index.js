@@ -12,6 +12,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // Pages
 import Home from './pages/home/Home';
 import Empty from './components/layout/navigation/Empty';
+import NavBar from './components/layout/navigation/PrincipalNavigationBar';
 import Auth from './pages/auth/Auth';
 import Signin from './pages/auth/signin/Signin';
 import Signup from './pages/auth/signup/Signup';
@@ -35,7 +36,7 @@ root.render(
         </Route>
 
         {/* Others pages */}
-        <Route path="/homepage" element={<Empty />}>
+        <Route path="/homepage" element={<NavBar />}>
           <Route index element={<Home />} />
         </Route>
       </Routes>

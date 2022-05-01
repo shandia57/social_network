@@ -20,3 +20,7 @@
     outline: none;
 }
 
+.containerLabelInput div{
+    color:red;
+}
+

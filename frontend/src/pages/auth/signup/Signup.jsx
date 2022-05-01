@@ -1,4 +1,6 @@
+import {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 // images
 import logo from "./../../../images/logo/logo.svg"
@@ -12,12 +14,28 @@ import "./css/style-tab.css";
 import ButtonSubmit from "../../../components/custom/button/submit/ButtonSubmit";
 import LabelInput from "../../../components/custom/label-input/LabelInput";
 
-
+// Services functions
+import * as validation from "../../../services/validations/Input";
+import * as request from "../../../services/axios/User";
 const Signup = () => {
+    
+    const [password, setPassword] = useState("");
+    const [success, Setsuccess] = useState("")
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log("submit");
+        const form = event.target;
+        const valideForm = validation.isValideForm(form);
+        if(valideForm){
+            request.createUser(form).then(response => {
+                Setsuccess("Votre compte a été créée avec succès");
+                navigate("/auth/signin");
+           }).catch(error => {
+               alert("Votre compte n'a pas pu être créée")
+               Setsuccess("");
+           })
+        }
     }
 
     return (
@@ -32,7 +50,7 @@ const Signup = () => {
             <div className="container-title-form">
             <h1 className="text-center">Créer un compte</h1>
             <p className="text-center">Vous n'êtes pas encore enregistré ? Inscrivez-vous !</p>
-
+            <p className="text-center success !">{success}</p>
             <form onSubmit={handleSubmit}>
                    <div className="signUpForm">
                    <LabelInput  
@@ -59,7 +77,7 @@ const Signup = () => {
                     <LabelInput  
                         labelText="Date de naissance"
                         inputType="date"
-                        inputName="birthdate"
+                        inputName="birthday"
                         inputPlaceHolder=""
                     />
 
@@ -68,6 +86,7 @@ const Signup = () => {
                         inputType="password"
                         inputName="password"
                         inputPlaceHolder="Votre mot de passe"
+                        setValuePassword={setPassword}
                     />
 
                     <LabelInput  
@@ -75,6 +94,7 @@ const Signup = () => {
                         inputType="password"
                         inputName="passwordConfirm"
                         inputPlaceHolder="Confirmez le mot de passe"
+                        password={password}
                     />
                     <ButtonSubmit text="Inscription" />
                    </div>

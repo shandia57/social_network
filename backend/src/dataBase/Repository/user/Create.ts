@@ -6,8 +6,11 @@ const bcrypt = require('bcrypt');
 
 export async function insertUser(request, connection) {
 
+    var bool = true;
     const login = new Login();
-    bcrypt.hash(request.password, 10).then(async hash => {
+
+    await bcrypt.hash(request.password, 10).then(async hash => {
+
         login.password = hash;
         login.isAdmin = 0;
         await connection.manager.save(login);
@@ -24,12 +27,21 @@ export async function insertUser(request, connection) {
         let userRepository = connection.getRepository(User);
 
         // saving a photo also save the metadata
-        await userRepository.save(user);
-        // console.log("Saved a new user with id: " + user.id);
-        console.log(`[${user.lastname.toUpperCase()} ${user.firstname}] has been correctly added into users`);
+        return await userRepository.save(user)
+            .then(() => {
+                console.log(`[${user.lastname.toUpperCase()} ${user.firstname}] has been correctly added into users`);
+
+            })
+            .catch(error => {
+                // console.log(error);
+                console.log("ça marche pas ")
+                bool = false;
+            });
+
+
+
     });
 
-
-
+    return bool;
 
 }

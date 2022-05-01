@@ -3,6 +3,10 @@ body{
     margin:0;
 }
 
+.success{
+    color: green;
+}
+
 /* 
     Help to dev
 */

@@ -5,10 +5,9 @@ exports.create = (request: any, results: any) => {
     connection
         .then(async connection => {
             repository.insertUser(request.body, connection)
+                .then(result => {
+                    result ? results.sendStatus(200) : results.sendStatus(400);
+                })
         })
-        .then(() => results.status(201))
-        .catch(error => {
-            console.log(error);
-            results.status(400);
-        });
+
 }

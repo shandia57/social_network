@@ -6,14 +6,17 @@ const App = () => {
 
 
     useEffect(() => {
-        navigate("/auth");
+        if (localStorage.getItem("userId")) {
+            navigate("/homepage");
+
+        } else {
+            navigate("/auth");
+        }
     }, [])
 
 
     return (
         <div>
-            <h1>Hello World</h1>
-            <p>This is my first react app</p>
             <Spinner />
         </div>
     );

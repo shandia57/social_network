@@ -16,7 +16,7 @@ export class User {
     @Column({ type: "date" })
     birthday: Date;
 
-    @Column({ length: "255" })
+    @Column({ length: "255", unique: true })
     email: string;
 
     @OneToOne(() => Login)
