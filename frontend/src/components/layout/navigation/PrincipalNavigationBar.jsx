@@ -1,5 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
 import logo from "./../../../images/logo/logo.svg";
+import logo2 from "./../../../images/logo/logo-white.svg";
 
 import "./css/style.css";
 
@@ -8,11 +9,8 @@ const NavBar = () => {
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/homepage">
-            <img className="logoNav" src={logo} />
-          </Link>
           <button
-            className="navbar-toggler"
+            className="navbar-toggler "
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -22,26 +20,13 @@ const NavBar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
+
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link
-                  className="nav-link active"
-                  aria-current="page"
-                  to="/homepage"
-                >
-                  Home
+                <Link className="navbar-brand" to="/homepage">
+                  <img className="logoNav" src={logo2} />
                 </Link>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Forum
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Mon compte
-                </a>
               </li>
             </ul>
           </div>

@@ -1,20 +1,34 @@
-body{
+body {
     background-color: #e0e0e0;
-    margin:0;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
 }
 
-.success{
+.success {
     color: green;
+}
+
+#root {
+    height: 100%;
+}
+
+.app {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 0fr 1fr;
 }
 
 /* 
     Help to dev
 */
 
-.red{
+.red {
     background-color: red;
 }
 
-.blue{
+.blue {
     background-color: blue;
 }
+
+/* UCHUCHCUCH */
