@@ -7,7 +7,7 @@ const App = () => {
 
     useEffect(() => {
         if (localStorage.getItem("userId")) {
-            navigate("/homepage");
+            navigate("/home");
 
         } else {
             navigate("/auth");
