@@ -33,7 +33,7 @@ const Signin = () => {
           }
         })
         .catch((error) => {
-          console.log("mauvais log");
+          alert("Echec de connexion");
         });
     }
   };

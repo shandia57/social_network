@@ -1,23 +1,25 @@
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const MultipleBreadCrumb = ({ breadcrumbs }) => {
+const MultipleBreadCrumb = ({ title, icon, linkName, path }) => {
   return (
     <div className="app-title">
       <div>
         <h1>
-          <i className="fa fa-users"></i>&nbsp;Suivi de Prénom NOM
+          <FontAwesomeIcon icon={icon} />
+          &nbsp;{title}
         </h1>
       </div>
       <ul className="app-breadcrumb breadcrumb">
         <li className="breadcrumb-item">
           <a href="#">
-            <i className="fa fa-home fa-lg"></i>
+            <FontAwesomeIcon icon={icon} />
           </a>
         </li>
         <li className="breadcrumb-item">
-          <a href="#">Employés</a>
+          <Link to={path}>{linkName}</Link>
         </li>
-        <li className="breadcrumb-item">Suivi de Prénom NOM</li>
+        <li className="breadcrumb-item">{title}</li>
       </ul>
     </div>
   );

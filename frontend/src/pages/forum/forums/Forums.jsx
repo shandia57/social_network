@@ -1,4 +1,4 @@
-import Aside from "../../../components/layout/aside/Aside"
+import Aside from "../../../components/layout/aside/Aside";
 import SingleBreadCrumb from "../../../components/layout/breadcrumb/single/SingleBreadCrumb";
 
 const Forums = () => {
@@ -7,7 +7,6 @@ const Forums = () => {
       <Aside />
       <div className="app-content">
         <SingleBreadCrumb title="Page d'accueil" />
-        <h1>Forums details</h1>
       </div>
     </div>
   );
