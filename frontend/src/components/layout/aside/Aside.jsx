@@ -1,6 +1,7 @@
+import {Link} from "react-router-dom";
+
 import "./css/appSidebar/app-Sidebar.css";
 import "./css/appSidebar/app-Sidebar-mobile.css";
-
 import "./css/appMenu/app-menu.css";
 
 import user from "../../../images/user/user.jpg";
@@ -20,22 +21,22 @@ const Aside = () => {
       </div>
       <ul className="app-menu">
         <li>
-          <a className="app-menu__item active" href="index.html">
+          <Link className="app-menu__item active" to="/home">
             <i className="app-menu__icon fa fa-dashboard"></i>
             <span className="app-menu__label">Page d'accueil</span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a className="app-menu__item" href="list.html">
+          <Link className="app-menu__item" to="/forums">
             <i className="app-menu__icon fa fa-laptop"></i>
             <span className="app-menu__label">Forum</span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a className="app-menu__item" href="list.html">
+          <Link className="app-menu__item" to="/user">
             <i className="app-menu__icon fa fa-users"></i>
             <span className="app-menu__label">Mon compte</span>
-          </a>
+          </Link>
         </li>
       </ul>
     </aside>

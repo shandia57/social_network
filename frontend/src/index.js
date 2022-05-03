@@ -12,6 +12,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Pages
 import Home from './pages/home/Home';
+import User from './pages/user/User';
+import Forums from './pages/forum/forums/Forums';
+import ForumsDetails from './pages/forum/forumDetails/ForumsDetails';
 import Empty from './components/layout/navigation/Empty';
 import NavBar from './components/layout/navigation/PrincipalNavigationBar';
 import Auth from './pages/auth/Auth';
@@ -25,8 +28,12 @@ root.render(
 
       {/* Controller Route */}
       <Routes>
-        <Route path="/" element={<Empty />}>
+        <Route path="/" element={<NavBar  />}>
           <Route index element={<App />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/forums" element={<Forums />} />
+          <Route path="/forums/details" element={<ForumsDetails />} />
+          <Route path="/user" element={<User />} />
         </Route>
 
         {/* Auth routes */}
@@ -36,10 +43,6 @@ root.render(
           <Route path="signin" element={<Signin />} />
         </Route>
 
-        {/* Others pages */}
-        <Route path="/homepage" element={<NavBar />}>
-          <Route index element={<Home />} />
-        </Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
