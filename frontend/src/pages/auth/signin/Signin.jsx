@@ -14,6 +14,7 @@ import LabelInput from "../../../components/custom/label-input/LabelInput";
 // Services functions
 import * as validation from "../../../services/validations/Input";
 import * as request from "../../../services/axios/Auth";
+import * as local from "../../../services/localStorage/AppLocalStorage";
 const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,8 +29,8 @@ const Signin = () => {
         .loginUser(form)
         .then((response) => {
           if (response.status === 200) {
-            localStorage.setItem("userId", response.data.userId);
-            navigate("/home");
+            local.setUserId(response.data.userId);
+            navigate("/");
           }
         })
         .catch((error) => {

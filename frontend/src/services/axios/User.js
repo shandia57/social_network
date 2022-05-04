@@ -17,3 +17,8 @@ export function createUser(form) {
     return axios.post(request, dataForm);
 
 }
+
+export function getUserById(id) {
+    const request = baseRequest + "/" + id;
+    return axios.get(request);
+}

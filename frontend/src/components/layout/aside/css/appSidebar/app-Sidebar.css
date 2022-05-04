@@ -39,12 +39,12 @@
     font-size: 21px;
 }
 
-.app-sidebar__toggle:focus,
+/* .app-sidebar__toggle:focus,
 .app-sidebar__toggle:hover {
     color: #fff;
     background-color: #17723e;
     text-decoration: none;
-}
+} */
 
 .app-sidebar::-webkit-scrollbar {
     width: 6px;

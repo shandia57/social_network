@@ -19,6 +19,15 @@ body {
     grid-template-columns: 0fr 1fr;
 }
 
+.no-decoration {
+    text-decoration: none;
+    list-style: none;
+}
+
+.app-principal-color {
+    color: #1f447b;
+}
+
 /* 
     Help to dev
 */

@@ -1,11 +1,17 @@
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "./css/appSidebar/app-Sidebar.css";
 import "./css/appSidebar/app-Sidebar-mobile.css";
 import "./css/appMenu/app-menu.css";
 
 import user from "../../../images/user/user.jpg";
+
+import * as local from "../../../services/localStorage/AppLocalStorage";
+
 const Aside = () => {
+  const firstname = local.getUserFirstName();
+  const lastname = local.getUserLastName();
+
   return (
     <aside className="app-sidebar">
       <div className="app-sidebar__user">
@@ -15,7 +21,9 @@ const Aside = () => {
           alt="User Image"
         />
         <div>
-          <p className="app-sidebar__user-name">Gerlus Maktarus</p>
+          <p className="app-sidebar__user-name">
+            {firstname} {lastname}
+          </p>
           <p className="app-sidebar__user-designation">Full stack</p>
         </div>
       </div>
