@@ -16,15 +16,12 @@ import * as validation from "../../../services/validations/Input";
 import * as request from "../../../services/axios/Auth";
 import * as local from "../../../services/localStorage/AppLocalStorage";
 const Signin = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const valideForm = validation.isValideForm(form);
     if (valideForm) {
-      // TODO : send data to server
       request
         .loginUser(form)
         .then((response) => {
@@ -38,9 +35,6 @@ const Signin = () => {
         });
     }
   };
-
-  // useEffect(() => {
-  // }, [])
 
   return (
     <div className="signin-page">
@@ -61,7 +55,6 @@ const Signin = () => {
               inputType="email"
               inputName="email"
               inputPlaceHolder="Votre adresse email"
-              state={setEmail}
             />
 
             <LabelInput
@@ -69,7 +62,6 @@ const Signin = () => {
               inputType="password"
               inputName="password"
               inputPlaceHolder="Votre mot de passe"
-              state={setPassword}
             />
 
             <ButtonSubmit text="Connexion" />

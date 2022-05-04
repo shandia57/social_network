@@ -1,5 +1,29 @@
 import LabelInput from "../../../custom/label-input/LabelInput";
+
+import * as validation from "../../../../services/validations/Input";
+import * as request from "../../../../services/axios/Auth";
+
 const ModalUserDetails = ({ firstname, lastname, birthday, email }) => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const valideForm = validation.isValideForm(form);
+    if (valideForm) {
+      // request
+      //   .loginUser(form)
+      //   .then((response) => {
+      //     if (response.status === 200) {
+      //       local.setUserId(response.data.userId);
+      //       navigate("/");
+      //     }
+      //   })
+      //   .catch((error) => {
+      //     alert("Echec de connexion");
+      //   });
+      console.log("coucou");
+    }
+  };
+
   return (
     <div
       className="modal fade"
@@ -21,7 +45,7 @@ const ModalUserDetails = ({ firstname, lastname, birthday, email }) => {
               aria-label="Close"
             ></button>
           </div>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="modal-body">
               <LabelInput
                 labelText="Nom"

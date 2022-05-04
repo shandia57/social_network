@@ -22,3 +22,19 @@ export function getUserById(id) {
     const request = baseRequest + "/" + id;
     return axios.get(request);
 }
+
+export function updateUser(form, id) {
+    const request = baseRequest + "/update/" + id;
+    const data = new FormData(form);
+    const dataForm =
+    {
+        firstname: data.get('firstname'),
+        lastname: data.get('lastname'),
+        birthday: data.get('birthday'),
+        email: data.get('email'),
+        password: data.get('password'),
+    }
+
+    return axios.post(request, dataForm);
+
+}
