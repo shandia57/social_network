@@ -4,13 +4,13 @@ const emailRegx = /^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 const passwordRegx = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{6,20}/i;
 
 /*
-    * EXPLICATION REGEX PASSWORD
+    * EXPLICATION REGEX 
     * [+a-zA-Z0-9._-]   # chaîne de caractère dont les caractères spéciaux sont autorisés
     * +@                # le prochain caractère doit être @
-    * (?=.*\d)          #   must contains one digit from 0-9
-    * (?=.*[a-z])       #   must contains one lowercase characters
-    * (?=.*[\W])        #   must contains at least one special character
-    * {8,20}            #   length at least 8 characters and maximum of 20
+    * (?=.*\d)          #   doit contenir un digit entre 0-9
+    * (?=.*[a-z])       #   doit contenir une lettre minuscule
+    * (?=.*[\W])        #   doit contenir un caractère spécial à la fin
+    * {8,20}            #   doit contenir entre 8 et 20 caractères
 */
 
 
