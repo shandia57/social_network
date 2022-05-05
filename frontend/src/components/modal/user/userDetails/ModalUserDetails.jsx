@@ -1,26 +1,28 @@
 import LabelInput from "../../../custom/label-input/LabelInput";
 
 import * as validation from "../../../../services/validations/Input";
-import * as request from "../../../../services/axios/Auth";
+import * as request from "../../../../services/axios/User";
+import * as local from "../../../../services/localStorage/AppLocalStorage";
 
 const ModalUserDetails = ({ firstname, lastname, birthday, email }) => {
   const handleSubmit = (event) => {
-    event.preventDefault();
     const form = event.target;
     const valideForm = validation.isValideForm(form);
     if (valideForm) {
-      // request
-      //   .loginUser(form)
-      //   .then((response) => {
-      //     if (response.status === 200) {
-      //       local.setUserId(response.data.userId);
-      //       navigate("/");
-      //     }
-      //   })
-      //   .catch((error) => {
-      //     alert("Echec de connexion");
-      //   });
-      console.log("coucou");
+      request
+        .updateUser(form, local.getUserId())
+        .then((response) => {
+          if (response.status === 200) {
+            local.setUserFirstname(form.firstname.value);
+            local.setUserLastname(form.lastname.value);
+            local.setUserBirthday(form.birthday.value);
+            local.setUserEmail(form.email.value);
+          }
+        })
+        .catch((error) => {
+          event.preventDefault();
+          alert("Les données saisies sont incorrectes");
+        });
     }
   };
 
@@ -48,18 +50,18 @@ const ModalUserDetails = ({ firstname, lastname, birthday, email }) => {
           <form onSubmit={handleSubmit}>
             <div className="modal-body">
               <LabelInput
-                labelText="Nom"
+                labelText="Prénom"
                 inputType="text"
                 inputName="firstname"
-                inputPlaceHolder="Votre nom"
+                inputPlaceHolder="Votre Prénom"
                 initialValue={lastname}
               />
 
               <LabelInput
-                labelText="Prénom"
+                labelText="Nom"
                 inputType="text"
                 inputName="lastname"
-                inputPlaceHolder="Votre prénom"
+                inputPlaceHolder="Votre nom"
                 initialValue={firstname}
               />
 

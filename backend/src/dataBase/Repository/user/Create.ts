@@ -26,7 +26,6 @@ export async function insertUser(request, connection) {
         // get repository
         let userRepository = connection.getRepository(User);
 
-        // saving a photo also save the metadata
         return await userRepository.save(user)
             .then(() => {
                 console.log(`[${user.lastname.toUpperCase()} ${user.firstname}] has been correctly added into users`);
@@ -34,7 +33,6 @@ export async function insertUser(request, connection) {
             })
             .catch(error => {
                 // console.log(error);
-                console.log("ça marche pas ")
                 bool = false;
             });
 

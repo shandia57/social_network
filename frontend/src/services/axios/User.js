@@ -24,6 +24,7 @@ export function getUserById(id) {
 }
 
 export function updateUser(form, id) {
+    console.log(id);
     const request = baseRequest + "/update/" + id;
     const data = new FormData(form);
     const dataForm =
