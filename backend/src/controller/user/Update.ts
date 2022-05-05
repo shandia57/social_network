@@ -13,5 +13,7 @@ exports.update = (request: any, results: any) => {
 }
 
 exports.updatePhoto = (request: any, results: any) => {
+    // imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
+
     console.log("updatePhoto", request);
 }

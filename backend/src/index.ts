@@ -5,6 +5,7 @@ import { createConnection } from "typeorm";
 const express = require("express");
 const app = express();
 const bodyParser = require('body-parser');
+const path = require('path');
 const PORT = 8000;
 
 const usersRoutes = require('./routes/users');
@@ -22,7 +23,7 @@ app.use((req, res, next) => {
     next();
 });
 
-
+app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use("/api/users", usersRoutes)
 app.use("/api/auth", authRoutes)
 
