@@ -11,3 +11,7 @@ exports.update = (request: any, results: any) => {
     })
 
 }
+
+exports.updatePhoto = (request: any, results: any) => {
+    console.log("updatePhoto", request);
+}

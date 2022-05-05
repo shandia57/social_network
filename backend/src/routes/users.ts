@@ -10,6 +10,7 @@ routerUser.get("/", findUserCtrl.findAll);
 routerUser.get("/:id", findUserCtrl.findById);
 routerUser.post("/create", createUserCtrl.create);
 routerUser.post("/update/:id", updateUserCtrlk.update);
+routerUser.post("/update/photo/:id", updateUserCtrlk.updatePhoto);
 routerUser.delete("/delete/:id", deleteUserCtrl.delete);
 
 module.exports = routerUser;

@@ -24,7 +24,6 @@ export function getUserById(id) {
 }
 
 export function updateUser(form, id) {
-    console.log(id);
     const request = baseRequest + "/update/" + id;
     const data = new FormData(form);
     const dataForm =
@@ -38,4 +37,14 @@ export function updateUser(form, id) {
 
     return axios.post(request, dataForm);
 
+}
+
+export function updateUserPhoto(file, id) {
+    const request = baseRequest + "/update/photo/" + id;
+    const data = new FormData();
+    data.append('file', file);
+    if (file) {
+        console.log("data sended")
+        return axios.post(request, data);
+    }
 }
