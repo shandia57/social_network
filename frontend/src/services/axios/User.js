@@ -42,7 +42,7 @@ export function updateUser(form, id) {
 export function updateUserPhoto(file, id) {
     const request = baseRequest + "/update/photo/" + id;
     const data = new FormData();
-    data.append('file', file);
+    data.append('image', file);
     if (file) {
         console.log("data sended")
         return axios.post(request, data);

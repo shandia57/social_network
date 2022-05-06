@@ -2,6 +2,10 @@ import { connection } from "../../index";
 import * as repository from "../../dataBase/Repository/user/Update";
 
 
+
+var fs = require('fs');
+
+
 exports.update = (request: any, results: any) => {
     connection.then(async connection => {
         repository.updateUser(request, connection, request.params.id)
@@ -15,5 +19,6 @@ exports.update = (request: any, results: any) => {
 exports.updatePhoto = (request: any, results: any) => {
     // imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
 
-    console.log("updatePhoto", request);
+    // console.log("updatePhoto", request.file);
+
 }

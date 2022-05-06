@@ -1,8 +1,17 @@
 const expUser = require('express');
 const routerUser = expUser.Router();
 
+
 // middleware that is specific to this router
 const multerPhoto = require('../middleware/multerConfig');
+
+
+/** Permissible loading a single file, 
+    the value of the attribute "name" in the form of "recfile". **/
+// var multerNew = require('multer');
+
+// var upload = multerNew({ dest: 'images/' });
+// var type = upload.single('photo');
 
 const findUserCtrl = require('../controller/user/Find');
 const createUserCtrl = require('../controller/user/Create');

@@ -54,7 +54,7 @@ const ModalPhotoProfile = ({ photo }) => {
               <LabelInput
                 labelText="Nouvelle photo de profil"
                 inputType="file"
-                inputName="photo"
+                inputName="image"
                 inputPlaceHolder=""
                 initialValue=""
               />
