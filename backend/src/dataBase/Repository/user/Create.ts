@@ -20,6 +20,7 @@ export async function insertUser(request, connection) {
         user.lastname = request.lastname;
         user.birthday = new Date(request.birthday);
         user.email = request.email;
+        user.profile = "http://localhost:8000/images/default.png";
         user.login = login;
 
 

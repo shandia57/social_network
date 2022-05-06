@@ -7,6 +7,7 @@ import Publications from "../../components/user/publication-table/Publications";
 
 import * as local from "../../services/localStorage/AppLocalStorage";
 import "./css/style.css";
+
 const User = () => {
   const firstname = local.getUserFirstName();
   const lastname = local.getUserLastName();

@@ -18,15 +18,17 @@ const LabelInput = ({
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    if (valueInput.length > 0) {
-      if (setValuePassword) {
-        setValuePassword(valueInput);
-      }
-      const isValide = validation.valideKey(inputName, valueInput, password);
-      if (isValide) {
-        setErrorMessage("");
-      } else {
-        setErrorMessage(validation.getMessage(inputName));
+    if (valueInput) {
+      if (valueInput.length > 0) {
+        if (setValuePassword) {
+          setValuePassword(valueInput);
+        }
+        const isValide = validation.valideKey(inputName, valueInput, password);
+        if (isValide) {
+          setErrorMessage("");
+        } else {
+          setErrorMessage(validation.getMessage(inputName));
+        }
       }
     }
   }, [valueInput]);

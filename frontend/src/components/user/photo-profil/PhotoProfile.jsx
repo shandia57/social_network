@@ -2,15 +2,13 @@ import ModalPhotoProfile from "./../../modal/user/PhotoProfile/ModalPhotoProfile
 import * as local from "../../../services/localStorage/AppLocalStorage";
 
 const PhotoProfile = () => {
+  const profile = local.getProfile();
+
   return (
     <>
       <div className="tile text-center">
         <h3 className="title-title">Photo de profil</h3>
-        <img
-          className=""
-          src="https://avatars.githubusercontent.com/u/90464110?v=4"
-          alt="User Image"
-        />
+        <img className="" src={profile} alt="User Image" />
         <form className="form-horizontal">
           <button
             type="button"

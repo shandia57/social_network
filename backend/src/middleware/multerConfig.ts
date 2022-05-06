@@ -6,14 +6,18 @@ const MIME_TYPES = {
     'image/png': 'png'
 };
 
+
+// var upload = multer({ dest: 'images/' });
+// var type = upload.single('photo');
+
 const storage = multer.diskStorage({
     destination: (req, file, callback) => {
-        callback(null, 'images')
+        callback(null, 'src/images/profile')
     },
     filename: (req, file, callback) => {
         const name = file.originalname.split('.')[0].split(' ').join('_');
         const extension = MIME_TYPES[file.mimetype];
-        callback(null, name + '_' + Date.now() + '.' + extension);
+        callback(null, req.params.id + '_' + name + '_' + Date.now() + '.' + extension);
     }
 })
 

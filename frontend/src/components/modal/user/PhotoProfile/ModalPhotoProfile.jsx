@@ -6,26 +6,19 @@ import * as local from "../../../../services/localStorage/AppLocalStorage";
 
 const ModalPhotoProfile = ({ photo }) => {
   const handleSubmit = (event) => {
-    event.preventDefault();
     const form = event.target;
-    request.updateUserPhoto(form.photo.files[0], local.getUserId());
-    // const valideForm = validation.isValideForm(form);
-    // if (valideForm) {
-    //   request
-    //     .updateUser(form, local.getUserId())
-    //     .then((response) => {
-    //       if (response.status === 200) {
-    //         local.setUserFirstname(form.firstname.value);
-    //         local.setUserLastname(form.lastname.value);
-    //         local.setUserBirthday(form.birthday.value);
-    //         local.setUserEmail(form.email.value);
-    //       }
-    //     })
-    //     .catch((error) => {
-    //       event.preventDefault();
-    //       alert("Les données saisies sont incorrectes");
-    //     });
-    // }
+
+    request
+      .updateUserPhoto(form.image.files[0], local.getUserId())
+      .then((response) => {
+        if (response.status === 200) {
+          local.setProfile(response.profile);
+        }
+      })
+      .catch((error) => {
+        event.preventDefault();
+        alert("Une erreur est survenus");
+      });
   };
 
   return (

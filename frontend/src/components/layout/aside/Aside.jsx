@@ -11,13 +11,14 @@ import * as local from "../../../services/localStorage/AppLocalStorage";
 const Aside = () => {
   const firstname = local.getUserFirstName();
   const lastname = local.getUserLastName();
+  const profile = local.getProfile();
 
   return (
     <aside className="app-sidebar">
       <div className="app-sidebar__user">
         <img
           className="app-sidebar__user-avatar"
-          src="https://avatars.githubusercontent.com/u/90464110?v=4"
+          src={profile}
           alt="User Image"
         />
         <div>

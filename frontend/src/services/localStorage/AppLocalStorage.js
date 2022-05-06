@@ -22,9 +22,15 @@ export function setUserBirthday(birthday) {
     localStorage.setItem('birthday', birthday);
 }
 
+export function setProfile(profile) {
+    localStorage.setItem('profile', profile);
+}
+
 export function setUserJobTitle(jobTitle) {
     localStorage.setItem('jobTitle', jobTitle);
 }
+
+
 
 // 
 //  Getters
@@ -48,6 +54,10 @@ export function getUserEmail() {
 
 export function getUserBirthday() {
     return localStorage.getItem('birthday');
+}
+
+export function getProfile() {
+    return localStorage.getItem('profile');
 }
 
 export function getUserJobTitle() {

@@ -10,13 +10,16 @@ const App = () => {
     const userId = local.getUserId();
     useEffect(() => {
         if (userId) {
-            navigate("/home");
+
             db.getUserById(userId).then(res => {
                 local.setUserFirstname(res.data.firstname);
                 local.setUserLastname(res.data.lastname);
                 local.setUserEmail(res.data.email);
                 local.setUserBirthday(res.data.birthday);
+                local.setProfile(res.data.profile);
             });
+
+            navigate("/home");
 
         } else {
             navigate("/auth");

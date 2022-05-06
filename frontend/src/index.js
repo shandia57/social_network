@@ -28,7 +28,7 @@ root.render(
 
       {/* Controller Route */}
       <Routes>
-        <Route path="/" element={<NavBar  />}>
+        <Route path="/" element={<NavBar />}>
           <Route index element={<App />} />
           <Route path="/home" element={<Home />} />
           <Route path="/forums" element={<Forums />} />

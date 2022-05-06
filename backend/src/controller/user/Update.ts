@@ -17,8 +17,15 @@ exports.update = (request: any, results: any) => {
 }
 
 exports.updatePhoto = (request: any, results: any) => {
-    // imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
 
-    // console.log("updatePhoto", request.file);
+    const profile = `${request.protocol}://${request.get('host')}/images/profile/${request.file.filename}`;
+
+    connection.then(async connection => {
+        repository.updateUserProfile(request, connection, profile)
+            .then(result => {
+                result ? results.send(JSON.stringify({ profile: profile })) : results.sendStatus(400)
+            })
+    })
+
 
 }
