@@ -26,4 +26,5 @@ export class User {
     @JoinColumn()
     login: Login;
 
+
 }

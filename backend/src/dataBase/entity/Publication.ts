@@ -19,6 +19,9 @@ export class Publication {
     @Column({ nullable: true })
     image: string;
 
+    @Column()
+    liked: number;
+
     @OneToOne(() => User)
     @JoinColumn()
     user: User;
