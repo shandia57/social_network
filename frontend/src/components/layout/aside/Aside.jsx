@@ -31,19 +31,16 @@ const Aside = () => {
       <ul className="app-menu">
         <li>
           <Link className="app-menu__item active" to="/home">
-            <i className="app-menu__icon fa fa-dashboard"></i>
             <span className="app-menu__label">Page d'accueil</span>
           </Link>
         </li>
         <li>
           <Link className="app-menu__item" to="/forums">
-            <i className="app-menu__icon fa fa-laptop"></i>
             <span className="app-menu__label">Forum</span>
           </Link>
         </li>
         <li>
           <Link className="app-menu__item" to="/user">
-            <i className="app-menu__icon fa fa-users"></i>
             <span className="app-menu__label">Mon compte</span>
           </Link>
         </li>

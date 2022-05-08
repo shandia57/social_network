@@ -19,6 +19,10 @@ body {
     grid-template-columns: 0fr 1fr;
 }
 
+.app-content {
+    overflow: scroll;
+}
+
 .no-decoration {
     text-decoration: none;
     list-style: none;

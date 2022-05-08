@@ -10,6 +10,8 @@ const PORT = 8000;
 
 const usersRoutes = require('./routes/users');
 const authRoutes = require('./routes/auth');
+const publicationRoutes = require('./routes/publication');
+const commentRoutes = require('./routes/comment');
 
 export const connection = createConnection()
 
@@ -26,8 +28,11 @@ app.use((req, res, next) => {
 app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use('/images/profile', express.static(path.join(__dirname, 'images/profile')));
 app.use('/images/forum', express.static(path.join(__dirname, 'images/forums')));
+
 app.use("/api/users", usersRoutes)
 app.use("/api/auth", authRoutes)
+app.use("/api/publications", publicationRoutes)
+app.use("/api/comments", commentRoutes)
 
 
 app.listen(PORT, () => {

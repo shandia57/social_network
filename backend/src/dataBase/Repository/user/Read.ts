@@ -4,12 +4,23 @@ import { User } from "../../entity/User";
 export async function getUsers(results, connection) {
     let userRepository = connection.getRepository(User);
     const users = await userRepository.find();
-    results.send(JSON.stringify(users));
+    if (users) {
+        results.send(JSON.stringify(users));
+        return true;
+    } else {
+        return false
+    }
+
 }
 
 export async function getUserById(results, connection, id) {
     let userRepository = connection.getRepository(User);
     const user = await userRepository.findOne(id);
-    results.send(JSON.stringify(user));
+    if (user) {
+        results.send(JSON.stringify(user));
+        return true;
+    } else {
+        return false
+    }
 }
 

@@ -1,0 +1,9 @@
+.header-profile {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.header-profile__avatar img {
+    border-radius: 50%;
+    height: 75px
+}
