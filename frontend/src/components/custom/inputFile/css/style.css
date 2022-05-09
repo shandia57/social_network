@@ -1,0 +1,9 @@
+.input-file {
+    display: grid;
+}
+
+.input-file label {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #000;
+}

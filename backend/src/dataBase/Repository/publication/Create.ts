@@ -3,16 +3,16 @@ import { User } from "../../entity/User";
 // import { Comment } from "../../entity/Comment";
 import { Publication } from "../../entity/Publication";
 
-export async function InsertPublication(request, connection) {
+export async function InsertPublication(request, connection, image) {
 
     let userRepository = connection.getRepository(User);
-    const user = await userRepository.findOne(request.user);
+    const user = await userRepository.findOne(request.userId);
 
     const publication = new Publication();
     publication.title = request.title;
     publication.text = request.text;
-    publication.published = new Date(request.published);
-    publication.image = request.image ?? null;
+    publication.published = new Date();
+    publication.image = image ?? null;
     publication.liked = 0;
     publication.user = user;
 

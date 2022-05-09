@@ -1,6 +1,6 @@
 const DATA_PUBLICATIONS = [
     {
-        "id": 1,
+        "userId": 1,
         "title": "Publication 1",
         "text": "text 1",
         "published": "2020-01-01",
@@ -8,14 +8,14 @@ const DATA_PUBLICATIONS = [
         "user": 1
     },
     {
-        "id": 2,
+        "userId": 2,
         "title": "Publication 2",
         "text": "text 2",
         "published": "2020-01-02",
         "user": 2
     },
     {
-        "id": 3,
+        "userId": 3,
         "title": "Publication 3",
         "text": "text 3",
         "published": "2020-01-03",
@@ -23,14 +23,14 @@ const DATA_PUBLICATIONS = [
         "user": 3
     },
     {
-        "id": 4,
+        "userId": 4,
         "title": "Publication 4",
         "text": "text 4",
         "published": "2020-01-04",
         "user": 4
     },
     {
-        "id": 5,
+        "userId": 5,
         "title": "Publication 5",
         "text": "text 5",
         "published": "2020-01-05",
@@ -38,14 +38,14 @@ const DATA_PUBLICATIONS = [
         "user": 5
     },
     {
-        "id": 6,
+        "userId": 6,
         "title": "Publication 6",
         "text": "text 6",
         "published": "2020-01-06",
         "user": 6
     },
     {
-        "id": 7,
+        "userId": 7,
         "title": "Publication 7",
         "text": "text 7",
         "published": "2020-01-07",
@@ -53,7 +53,7 @@ const DATA_PUBLICATIONS = [
     },
 
     {
-        "id": 8,
+        "userId": 8,
         "title": "Publication 8",
         "text": "text 8",
         "published": "2020-01-08",
@@ -61,14 +61,14 @@ const DATA_PUBLICATIONS = [
         "user": 8
     },
     {
-        "id": 9,
+        "userId": 9,
         "title": "Publication 9",
         "text": "text 9",
         "published": "2020-01-09",
         "user": 9
     },
     {
-        "id": 10,
+        "userId": 10,
         "title": "Publication 10",
         "text": "text 10",
         "published": "2020-01-10",

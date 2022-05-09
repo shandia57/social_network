@@ -29,7 +29,7 @@ export function loadPublications() {
     DATA_PUBLICATIONS.forEach((publicationData: PublicationInterface) => {
         connection
             .then(async connection => {
-                InsertPublication(publicationData, connection);
+                InsertPublication(publicationData, connection, null);
             })
             .catch(error => console.log(error));
     })

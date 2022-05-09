@@ -1,4 +1,6 @@
 const nameRegx = /^[a-zA-Z-]{2,50}$/;
+// const titleRegx = /^[a-zA-Z-_,;.:!?" ]{2,}$/;
+// const textRegex = /^[a-zA-Z0-9-_,;.:!?"' ]{2,}$/;
 const birthdayRegx = /^\d{4}([./-])\d{2}\1\d{2}$/;
 const emailRegx = /^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 const passwordRegx = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{6,20}/i;
@@ -11,6 +13,7 @@ const passwordRegx = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{6,20}/i;
     * (?=.*[a-z])       #   doit contenir une lettre minuscule
     * (?=.*[\W])        #   doit contenir un caractère spécial à la fin
     * {8,20}            #   doit contenir entre 8 et 20 caractères
+    * \S                #   doit contenir un caractère non-blanc
 */
 
 
@@ -41,6 +44,14 @@ function validatePasswordConfirm(password, passwordConfirm) {
     return password === passwordConfirm;
 }
 
+function valideTitle(title) {
+    return title.trim().length > 0;
+}
+
+function valideText(text) {
+    return text.trim().length > 0;
+}
+
 export function valideKey(key, data, password) {
     switch (key) {
         case 'email':
@@ -55,6 +66,12 @@ export function valideKey(key, data, password) {
             return validatePassword(data);
         case 'passwordConfirm':
             return validatePasswordConfirm(data, password);
+        case 'title':
+            return valideTitle(data);
+        case 'text':
+            return valideText(data)
+        case 'image':
+            return true;
         default:
             return false;
     }
@@ -74,8 +91,14 @@ export function getMessage(key) {
             return `Ceci n'est pas un mot de passe valide`;
         case 'passwordConfirm':
             return `Vos mots de passe ne correspondent pas`;
-        default:
+        case 'title':
+            return 'Ce n\'est pas un titre valide';
+        case 'text':
+            return 'Ce n\'est pas un text valide';
+        case 'image':
             return '';
+        default:
+            return 'Cette clé n\'existe pas !';
     }
 }
 

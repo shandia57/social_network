@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn, OneToMany } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, OneToMany } from "typeorm";
 import { User } from "./User";
 import { Comment } from "./Comment"
 @Entity({ name: "publications" })
@@ -22,8 +22,7 @@ export class Publication {
     @Column()
     liked: number;
 
-    @OneToOne(() => User)
-    @JoinColumn()
+    @ManyToOne(() => User, user => user.publications, { onDelete: "CASCADE" })
     user: User;
 
     @OneToMany(() => Comment, comment => comment.publication)

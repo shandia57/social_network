@@ -1,5 +1,5 @@
 interface PublicationInterface {
-    id: number,
+    userId: number,
     title: string,
     text: string,
     published: string,
