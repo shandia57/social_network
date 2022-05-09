@@ -1,11 +1,6 @@
 import { connection } from "../../index";
 import * as repository from "../../dataBase/Repository/user/Update";
 
-
-
-var fs = require('fs');
-
-
 exports.update = (request: any, results: any) => {
     connection.then(async connection => {
         repository.updateUser(request, connection, request.params.id)

@@ -1,23 +1,42 @@
-import MultipleBreadCrumb from "../../components/layout/breadcrumb/multiples/MultipleBreadCrumb";
-import Aside from "../../components/layout/aside/Aside";
-import PhotoProfile from "../../components/user/photo-profil/PhotoProfile";
-import UserInformation from "../../components/user/user-information/UserInformation";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
-import Publications from "../../components/user/publication-table/Publications";
+import { useEffect, useState } from "react";
 
-import * as local from "../../services/localStorage/AppLocalStorage";
+// css
 import "./css/style.css";
 
+// compoenents
+import Aside from "../../components/layout/aside/Aside";
+import MultipleBreadCrumb from "../../components/layout/breadcrumb/multiples/MultipleBreadCrumb";
+import PhotoProfile from "../../components/user/photo-profil/PhotoProfile";
+import UserInformation from "../../components/user/user-information/UserInformation";
+import Publications from "../../components/user/publication-table/Publications";
+
+// icon
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+
+// services
+import * as local from "../../services/localStorage/AppLocalStorage";
+import * as db from "../../services/axios/User";
+
 const User = () => {
-  const firstname = local.getUserFirstName();
-  const lastname = local.getUserLastName();
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    const id = local.getUserId();
+    db.getUserById(id).then((user) => {
+      setUser(user.data);
+    });
+  }, []);
 
   return (
     <div className="app">
-      <Aside />
+      <Aside
+        firstname={user.firstname}
+        lastname={user.lastname}
+        profile={user.profile}
+      />
       <div className="app-content">
         <MultipleBreadCrumb
-          title={`${firstname} ${lastname}`}
+          title={`${user.firstname} ${user.lastname}`}
           icon={faUser}
           linkName="Mon profil"
           path="/user"
@@ -26,12 +45,17 @@ const User = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-4">
-              <PhotoProfile />
-              <UserInformation />
+              <PhotoProfile profile={user.profile} />
+              <UserInformation
+                firstname={user.firstname}
+                lastname={user.lastname}
+                email={user.email}
+                birthday={user.birthday}
+              />
             </div>
 
             <div className="col-md-8">
-              <Publications />
+              <Publications publications={user.publications} />
             </div>
           </div>
         </div>

@@ -1,11 +1,6 @@
 import ModalUserDetails from "./../../modal/user/userDetails/ModalUserDetails";
 import * as local from "../../../services/localStorage/AppLocalStorage";
-const UserInformation = () => {
-  const firstname = local.getUserFirstName();
-  const lastname = local.getUserLastName();
-  const email = local.getUserEmail();
-  const birthday = local.getUserBirthday();
-
+const UserInformation = (props) => {
   return (
     <>
       <div className="tile">
@@ -13,20 +8,20 @@ const UserInformation = () => {
           <tbody>
             <tr>
               <th>Prénom</th>
-              <td>{firstname}</td>
+              <td>{props.firstname}</td>
             </tr>
             <tr>
               <th>Nom</th>
-              <td>{lastname}</td>
+              <td>{props.lastname}</td>
             </tr>
             <tr>
               <th>Email</th>
-              <td>{email}</td>
+              <td>{props.email}</td>
             </tr>
 
             <tr>
               <th>Date de naissance</th>
-              <td>{birthday}</td>
+              <td>{props.birthday}</td>
             </tr>
 
             <tr>
@@ -47,10 +42,10 @@ const UserInformation = () => {
         </div>
       </div>
       <ModalUserDetails
-        firstname={firstname}
-        lastname={lastname}
-        email={email}
-        birthday={birthday}
+        firstname={props.firstname}
+        lastname={props.lastname}
+        email={props.email}
+        birthday={props.birthday}
       />
     </>
   );

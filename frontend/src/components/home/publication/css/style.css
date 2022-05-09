@@ -22,8 +22,8 @@
     text-align: center;
 }
 
-.publication-content-body__img {
-    max-height: 200px;
+.publication-content-body__img img {
+    max-height: 150px;
 }
 
 .publication-content-footer {

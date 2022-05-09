@@ -1,0 +1,19 @@
+.container-update-image {
+    width: 100%;
+    display: grid;
+}
+
+.container-update-image label {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #000;
+}
+
+.container-update-image img {
+    max-height: 150px;
+}
+
+.container-update-image input {
+    margin-top: 1%;
+
+}

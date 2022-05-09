@@ -43,7 +43,7 @@ const Publication = (props) => {
           <p>{props.text}</p>
           <div className="publication-content-body__img">
             {props.image !== null ? (
-              <img src={props.image} alt="avatar" />
+              <img src={props.image} alt="image" />
             ) : null}
           </div>
         </div>

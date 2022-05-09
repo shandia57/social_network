@@ -15,7 +15,7 @@ export async function getUsers(results, connection) {
 
 export async function getUserById(results, connection, id) {
     let userRepository = connection.getRepository(User);
-    const user = await userRepository.findOne(id);
+    const user = await userRepository.findOne(id, { relations: ["publications"] });
     if (user) {
         results.send(JSON.stringify(user));
         return true;

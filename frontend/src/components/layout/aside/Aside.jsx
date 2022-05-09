@@ -8,22 +8,18 @@ import user from "../../../images/user/user.jpg";
 
 import * as local from "../../../services/localStorage/AppLocalStorage";
 
-const Aside = () => {
-  const firstname = local.getUserFirstName();
-  const lastname = local.getUserLastName();
-  const profile = local.getProfile();
-
+const Aside = (props) => {
   return (
     <aside className="app-sidebar">
       <div className="app-sidebar__user">
         <img
           className="app-sidebar__user-avatar"
-          src={profile}
+          src={props.profile}
           alt="User Image"
         />
         <div>
           <p className="app-sidebar__user-name">
-            {firstname} {lastname}
+            {props.firstname} {props.lastname}
           </p>
           <p className="app-sidebar__user-designation">Full stack</p>
         </div>

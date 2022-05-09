@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 import LabelInput from "../../../custom/label-input/LabelInput";
 import InputFile from "../../../custom/inputFile/InputFile";
 
@@ -7,14 +9,18 @@ import * as validation from "../../../../services/validations/Input";
 
 const ModalPublications = (props) => {
   const handleSubmit = (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const validationForm = validation.isValideForm(form);
-    if (validationForm) {
-      const userId = local.getUserId();
-      db.createPublication(form, userId);
+    if (props.id) {
+      console.log("Werenoi j'veux update");
     } else {
-      console.log("form is not valide");
+      event.preventDefault();
+      const form = event.target;
+      const validationForm = validation.isValideForm(form);
+      if (validationForm) {
+        const userId = local.getUserId();
+        db.createPublication(form, userId);
+      } else {
+        console.log("form is not valide");
+      }
     }
   };
 
@@ -30,7 +36,7 @@ const ModalPublications = (props) => {
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">
-              Nouvelle publication
+              {props.title}
             </h5>
             <button
               type="button"

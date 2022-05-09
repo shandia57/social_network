@@ -16,7 +16,6 @@ const LabelInput = ({
 }) => {
   const [valueInput, setValueInput] = useState(initialValue);
   const [errorMessage, setErrorMessage] = useState("");
-
   useEffect(() => {
     if (valueInput) {
       if (valueInput.length > 0) {

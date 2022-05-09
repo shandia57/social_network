@@ -6,19 +6,31 @@ import Publication from "../../components/home/publication/Publication";
 
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 
-import * as db from "../../services/axios/Publications";
+import * as db_publications from "../../services/axios/Publications";
+import * as db_user from "../../services/axios/User";
+import * as local from "../../services/localStorage/AppLocalStorage";
 
 const Home = () => {
   const [publications, setPublications] = useState([]);
+  const [user, setUser] = useState({});
+
   useEffect(() => {
-    db.getAllPublications().then((res) => {
+    db_publications.getAllPublications().then((res) => {
       setPublications(res.data);
+    });
+    const id = local.getUserId();
+    db_user.getUserById(id).then((user) => {
+      setUser(user.data);
     });
   }, []);
 
   return (
     <div className="app">
-      <Aside />
+      <Aside
+        firstname={user.firstname}
+        lastname={user.lastname}
+        profile={user.profile}
+      />
 
       <div className="app-content">
         <SingleBreadCrumb icon={faHome} title="Page d'accueil" />
