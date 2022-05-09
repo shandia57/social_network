@@ -1,6 +1,19 @@
 import SingleUserComment from "../../../home/singleUserComment/SingleUserComment";
-
+import * as validation from "../../../../services/validations/Input";
+import * as db from "../../../../services/axios/Comments";
+import * as local from "../../../../services/localStorage/AppLocalStorage";
 const ModalComments = (props) => {
+  const handleSubmit = (event) => {
+    const form = event.target;
+    const validate = validation.isValideForm(form);
+    if (validate) {
+      const userId = local.getUserId();
+      db.insertComment(form.comment.value, userId, props.publicationId);
+    } else {
+      event.preventDefault();
+    }
+  };
+
   return (
     <div
       className="modal fade"
@@ -37,22 +50,25 @@ const ModalComments = (props) => {
               : "Aucun commentaire pour cette publication"}
           </div>
           <div className="modal-footer">
-            <div class="input-group mb-3">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Rédiger un commentaire"
-                aria-label="Recipient's username"
-                aria-describedby="button-addon2"
-              />
-              <button
-                className="btn btn-outline-secondary"
-                type="button"
-                id="button-addon2"
-              >
-                Envoyer
-              </button>
-            </div>
+            <form onSubmit={handleSubmit}>
+              <div class="input-group mb-3">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Rédiger un commentaire"
+                  aria-label="Recipient's username"
+                  aria-describedby="button-addon2"
+                  name="comment"
+                />
+                <button
+                  className="btn btn-outline-secondary"
+                  type="submit"
+                  id="button-addon2"
+                >
+                  Envoyer
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>

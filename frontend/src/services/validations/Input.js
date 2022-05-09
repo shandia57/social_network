@@ -1,6 +1,4 @@
 const nameRegx = /^[a-zA-Z-]{2,50}$/;
-// const titleRegx = /^[a-zA-Z-_,;.:!?" ]{2,}$/;
-// const textRegex = /^[a-zA-Z0-9-_,;.:!?"' ]{2,}$/;
 const birthdayRegx = /^\d{4}([./-])\d{2}\1\d{2}$/;
 const emailRegx = /^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 const passwordRegx = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{6,20}/i;
@@ -52,6 +50,10 @@ function valideText(text) {
     return text.trim().length > 0;
 }
 
+function valideComment(comment) {
+    return comment.trim().length > 0;
+}
+
 export function valideKey(key, data, password) {
     switch (key) {
         case 'email':
@@ -72,6 +74,8 @@ export function valideKey(key, data, password) {
             return valideText(data)
         case 'image':
             return true;
+        case 'comment':
+            return valideComment(data);
         default:
             return false;
     }
@@ -97,6 +101,8 @@ export function getMessage(key) {
             return 'Ce n\'est pas un text valide';
         case 'image':
             return '';
+        case 'comment':
+            return 'Un commentaire ne doit pas être vide';
         default:
             return 'Cette clé n\'existe pas !';
     }

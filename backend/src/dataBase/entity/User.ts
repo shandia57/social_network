@@ -1,6 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn, OneToMany } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn, ManyToOne, OneToMany } from "typeorm";
 import { Login } from "./login";
 import { Publication } from "./Publication";
+import { Comment } from "./Comment"
 
 @Entity({ name: "users" })
 
@@ -22,6 +23,10 @@ export class User {
 
     @Column({ type: "text" })
     profile: string;
+
+    @OneToMany(() => Comment, comment => comment.user)
+    @JoinColumn()
+    comments: Comment[];
 
     @OneToMany(() => Publication, publication => publication.user)
     @JoinColumn()

@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn, ManyToOne } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, JoinColumn, ManyToOne } from "typeorm";
 import { User } from "./User";
 import { Publication } from "./Publication"
 
@@ -14,8 +14,7 @@ export class Comment {
     @Column({ type: "date" })
     published: Date;
 
-    @OneToOne(() => User)
-    @JoinColumn()
+    @ManyToOne(() => User, user => user.comments, { onDelete: "CASCADE" })
     user: User;
 
     @ManyToOne(() => Publication, publication => publication.comments, { onDelete: "CASCADE" })

@@ -13,7 +13,7 @@ export async function InsertComment(request, connection) {
 
     const comment = new Comment();
     comment.text = request.text;
-    comment.published = new Date(request.published);
+    comment.published = new Date();
     comment.user = user;
     comment.publication = publication;
 
