@@ -46,7 +46,7 @@ const Home = () => {
               title={publication.title}
               text={publication.text}
               image={publication.image}
-              like={publication.liked}
+              like={publication.likes}
               comments={publication.comments.length}
               published={publication.published}
             />

@@ -12,6 +12,7 @@ const usersRoutes = require('./routes/users');
 const authRoutes = require('./routes/auth');
 const publicationRoutes = require('./routes/publication');
 const commentRoutes = require('./routes/comment');
+const likeRoutes = require('./routes/like');
 
 export const connection = createConnection()
 
@@ -33,6 +34,7 @@ app.use("/api/users", usersRoutes)
 app.use("/api/auth", authRoutes)
 app.use("/api/publications", publicationRoutes)
 app.use("/api/comments", commentRoutes)
+app.use("/api/likes", likeRoutes)
 
 
 app.listen(PORT, () => {

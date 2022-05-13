@@ -14,7 +14,6 @@ routerPublication.get("/:id", findPublicationCtrl.findById);
 routerPublication.post("/create", createPublicationCtrl.create);
 routerPublication.post("/createWithImage", multerPub, createPublicationCtrl.createWithImage);
 routerPublication.post("/update/:id", updatePublicationCtrl.update);
-routerPublication.post("/updateWithImage/:id", multerPub, updatePublicationCtrl.updateWithImage);
 // routerPublication.post("/update/photo/:id", multerPhoto, updatePublicationCtrl.updatePhoto);
 // routerPublication.delete("/delete/:id", deletePublicationCtrl.delete);
 

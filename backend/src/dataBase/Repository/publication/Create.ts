@@ -13,7 +13,6 @@ export async function InsertPublication(request, connection, image) {
     publication.text = request.text;
     publication.published = new Date();
     publication.image = image ?? null;
-    publication.liked = 0;
     publication.user = user;
 
     // get repository

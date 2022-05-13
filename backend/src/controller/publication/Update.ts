@@ -22,6 +22,4 @@ exports.updateWithImage = (request: any, results: any) => {
                 result ? results.send(JSON.stringify({ image: image })) : results.sendStatus(400)
             })
     })
-
-
 }
