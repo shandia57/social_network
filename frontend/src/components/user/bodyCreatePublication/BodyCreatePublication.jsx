@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import LabelInput from "../../custom/label-input/LabelInput";
 import InputFile from "../../custom/inputFile/InputFile";
@@ -10,6 +11,8 @@ import * as validation from "../../..//services/validations/Input";
 import "./css/style.css";
 
 const BodyCreatePublication = (props) => {
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -17,8 +20,9 @@ const BodyCreatePublication = (props) => {
     if (validationForm) {
       const userId = local.getUserId();
       db.createPublication(form, userId);
+      navigate("/user");
     } else {
-      console.log("form is not valide");
+      alert("Le formulaire n'est pas valide");
     }
   };
 

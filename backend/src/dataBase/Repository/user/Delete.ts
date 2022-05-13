@@ -8,6 +8,12 @@ export async function deleteUser(request, connection, id) {
     const user = await userRepository.findOne(id);
 
     // saving a photo also save the metadata
-    await userRepository.remove(user);
-    console.log("Removed user :  " + id);
+    return await userRepository.remove(user)
+        .then(() => {
+            console.log("User deleted with the ID : ", id);
+            return true;
+        })
+        .catch((error) => {
+            return false;
+        })
 }

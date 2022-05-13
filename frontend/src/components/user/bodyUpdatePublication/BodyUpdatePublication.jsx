@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 // Components
 import LabelInput from "../../custom/label-input/LabelInput";
@@ -17,8 +17,8 @@ import "./css/style.css";
 
 const BodyUpdatePublication = () => {
   const params = useParams();
+  const navigate = useNavigate();
   const [publication, setPublication] = useState({});
-  const [title, setTitle] = useState("");
 
   useEffect(() => {
     db.getPublicationById(params.id).then((res) => {
@@ -32,8 +32,9 @@ const BodyUpdatePublication = () => {
     const validationForm = validation.isValideForm(form);
     if (validationForm) {
       db.updatePublication(form, params.id);
+      navigate("/user");
     } else {
-      console.log("form is not valide");
+      alert("Le formulaire n'est pas valide");
     }
   };
   if (publication.title === undefined) {
