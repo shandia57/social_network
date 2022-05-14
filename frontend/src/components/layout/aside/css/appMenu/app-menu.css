@@ -3,6 +3,33 @@
     padding-bottom: 40px;
 }
 
+.app-menu__button {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 12px 15px;
+    font-size: 1.08em;
+    border-left: 3px solid transparent;
+    -webkit-transition: border-left-color 0.3s ease,
+        background-color 0.3s ease;
+    -o-transition: border-left-color 0.3s ease,
+        background-color 0.3s ease;
+    transition: border-left-color 0.3s ease,
+        background-color 0.3s ease;
+    color: #f4f4f4;
+    text-decoration: none;
+    background: #9f0b0b;
+    cursor: pointer
+}
+
+.app-menu__button:hover {
+    background: #7b0e0e;
+}
+
 .app-menu__item {
     position: relative;
     display: -webkit-box;
@@ -48,9 +75,9 @@
 }
 
 
-.sidebar-mini.sidenav-toggled .app-menu__item {
+/* .sidebar-mini.sidenav-toggled .app-menu__item {
     overflow: hidden;
-}
+} */
 
 .sidebar-mini.sidenav-toggled .app-menu__item:hover {
     overflow: visible;

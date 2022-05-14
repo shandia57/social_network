@@ -48,3 +48,8 @@ export function updateUserPhoto(file, id) {
         return axios.post(request, data);
     }
 }
+
+export function deleteUser(id) {
+    const request = baseRequest + "/delete/" + id;
+    return axios.delete(request);
+}

@@ -18,7 +18,7 @@ import * as db_like from "../../../services/axios/Like";
 const Publication = (props) => {
   const [comments, setComments] = useState([]);
   const [userLiked, setUserLiked] = useState([]);
-  const [isLiked, setIsLiked] = useState([]);
+
   const handleClickComments = () => {
     db.getCommentsByPublicationId(props.publicationId).then((res) => {
       setComments(res.data);
@@ -34,7 +34,6 @@ const Publication = (props) => {
         });
         setUserLiked(array);
       });
-      console.log(userLiked);
     }
   }, []);
   if (props.publicationId !== undefined) {

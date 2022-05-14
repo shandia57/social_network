@@ -1,6 +1,5 @@
 import LabelInput from "../../../custom/label-input/LabelInput";
 
-import * as validation from "../../../../services/validations/Input";
 import * as request from "../../../../services/axios/User";
 import * as local from "../../../../services/localStorage/AppLocalStorage";
 
@@ -10,11 +9,6 @@ const ModalPhotoProfile = ({ photo }) => {
 
     request
       .updateUserPhoto(form.image.files[0], local.getUserId())
-      .then((response) => {
-        if (response.status === 200) {
-          local.setProfile(response.profile);
-        }
-      })
       .catch((error) => {
         event.preventDefault();
         alert("Une erreur est survenus");
