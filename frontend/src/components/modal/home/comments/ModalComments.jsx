@@ -39,12 +39,14 @@ const ModalComments = (props) => {
             {props.comments.length > 0
               ? props.comments.map((comment) => (
                   <SingleUserComment
+                    isAdmin={props.isAdmin}
                     key={comment.id}
                     firstname={comment.user.firstname}
                     lastname={comment.user.lastname}
                     profile={comment.user.profile}
                     published={comment.published}
                     text={comment.text}
+                    commentId={comment.id}
                   />
                 ))
               : "Aucun commentaire pour cette publication"}

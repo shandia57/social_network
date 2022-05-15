@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 // CSS
 import "./css/style.css";
@@ -14,15 +15,37 @@ import Spinner from "../../layout/spinner/Spinner";
 import * as local from "../../../services/localStorage/AppLocalStorage";
 import * as db from "../../../services/axios/Comments";
 import * as db_like from "../../../services/axios/Like";
+import * as db_publication from "../../../services/axios/Publications";
+
+// icon
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const Publication = (props) => {
   const [comments, setComments] = useState([]);
   const [userLiked, setUserLiked] = useState([]);
+  const navigate = useNavigate();
 
   const handleClickComments = () => {
     db.getCommentsByPublicationId(props.publicationId).then((res) => {
       setComments(res.data);
     });
+  };
+
+  const deletePublication = () => {
+    const confirmDelete = window.confirm(
+      "Voulez-vous vraiment supprimer cette publication ?"
+    );
+    if (confirmDelete) {
+      db_publication
+        .deletePublication(props.publicationId)
+        .then(() => {
+          navigate("/");
+        })
+        .catch(() => {
+          alert("Une erreur est survenue");
+        });
+    }
   };
 
   useEffect(() => {
@@ -47,8 +70,14 @@ const Publication = (props) => {
               profile={props.profile}
               published={props.published}
             />
-            {local.getUserId() == props.userId ? (
-              <SimpleButton text="modifier la publication" />
+            {props.userId === 1 ? (
+              <FontAwesomeIcon
+                onClick={deletePublication}
+                color="red"
+                icon={faTrash}
+              >
+                Supprimer la publication
+              </FontAwesomeIcon>
             ) : null}
           </div>
           <hr />
@@ -75,6 +104,7 @@ const Publication = (props) => {
         <ModalComments
           comments={comments}
           publicationId={props.publicationId}
+          isAdmin={props.userId}
         />
       </>
     );

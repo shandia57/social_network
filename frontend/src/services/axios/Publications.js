@@ -64,9 +64,11 @@ export function updatePublication(form, id) {
 }
 
 export function updateUserLiked(id) {
-
-    console.log("send to server")
     const request = baseRequest + "/update/like/" + id;
     return axios.post(request, {})
+}
 
+export function deletePublication(id) {
+    const request = baseRequest + "/delete/" + id;
+    return axios.delete(request);
 }

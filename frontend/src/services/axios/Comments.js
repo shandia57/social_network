@@ -17,3 +17,8 @@ export function insertComment(comment, user, publication) {
     return axios.post(request, data);
 
 }
+
+export function deleteComment(id) {
+    const request = baseRequest + "/delete/" + id;
+    return axios.delete(request);
+}

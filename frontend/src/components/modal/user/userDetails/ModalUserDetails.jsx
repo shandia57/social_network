@@ -94,7 +94,7 @@ const ModalUserDetails = ({ firstname, lastname, birthday, email }) => {
                 />
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary">
                   Sauvergarder les changements
                 </button>
 
