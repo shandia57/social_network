@@ -6,9 +6,8 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import * as local from "../../../services/localStorage/AppLocalStorage";
 import * as db from "../../../services/axios/Like";
 
-const userId = local.getUserId();
-
 const Liked = (props) => {
+  const userId = local.getUserId();
   const isLiked = props.likes.includes(parseInt(userId));
   const handleLike = () => {
     if (!isLiked) {
@@ -16,7 +15,7 @@ const Liked = (props) => {
       window.location.reload();
     }
   };
-
+  console.log("liked : ", props.likes);
   return (
     <div className="publication-content-footer__like">
       <FontAwesomeIcon

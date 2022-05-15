@@ -13,7 +13,8 @@ const DATA_USERS = [
         "firstname": "Alexandre",
         "email": "alexandre@hotmail.fr",
         "birthday": "1996-12-23",
-        "password": "azerty57!"
+        "password": "azerty57!",
+        "isAdmin": 1
     },
     {
         "id": 3,

@@ -12,7 +12,7 @@ export async function insertUser(request, connection) {
     await bcrypt.hash(request.password, 10).then(async hash => {
 
         login.password = hash;
-        login.isAdmin = 0;
+        login.isAdmin = request.isAdmin ?? 0;
         await connection.manager.save(login);
 
         const user = new User();

@@ -11,13 +11,16 @@ const ModalUserDetails = ({ firstname, lastname, birthday, email }) => {
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
+    event.preventDefault();
     const form = event.target;
     const valideForm = validation.isValideForm(form);
     if (valideForm) {
-      request.updateUser(form, local.getUserId()).catch((error) => {
-        event.preventDefault();
-        alert("Les données saisies sont incorrectes");
-      });
+      request
+        .updateUser(form, local.getUserId())
+        .finally(() => window.location.reload(false))
+        .catch((error) => {
+          alert("Les données saisies sont incorrectes");
+        });
     }
   };
 

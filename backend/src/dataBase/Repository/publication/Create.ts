@@ -11,7 +11,7 @@ export async function InsertPublication(request, connection, image) {
     const publication = new Publication();
     publication.title = request.title;
     publication.text = request.text;
-    publication.published = new Date();
+    publication.published = request.published ?? new Date();
     publication.image = image ?? null;
     publication.user = user;
 

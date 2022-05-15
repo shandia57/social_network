@@ -2,10 +2,8 @@ import "reflect-metadata";
 import { Like } from "../../entity/Like";
 
 export async function getLikes(results, connection, id) {
-    let likeRepository = connection.getRepository(Like);
-    // const like = await likeRepository.find({ publication: id }, { relations: ["user"] });
     const like = await connection.getRepository(Like)
-        .createQueryBuilder("like") // first argument is an alias. Alias is what you are selecting - photos. You must specify it.
+        .createQueryBuilder("like")
         .innerJoinAndSelect("like.user", "user")
         .where("like.publication = :id", { id })
         .getMany()

@@ -9,10 +9,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 
 const Publications = (props) => {
-  const handleClick = (publication) => {
-    console.log(publication.id);
-  };
-
   return (
     <div className="tile pb-5">
       <div className="tile-header">
@@ -39,7 +35,7 @@ const Publications = (props) => {
                     key={publication.id}
                     title={publication.title}
                     published={publication.published}
-                    liked={publication.liked}
+                    liked={publication.likes}
                     id={publication.id}
                   />
                 ))

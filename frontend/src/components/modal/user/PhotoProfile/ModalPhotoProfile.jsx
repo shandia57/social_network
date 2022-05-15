@@ -5,12 +5,16 @@ import * as local from "../../../../services/localStorage/AppLocalStorage";
 
 const ModalPhotoProfile = ({ photo }) => {
   const handleSubmit = (event) => {
+    event.preventDefault();
+
     const form = event.target;
 
     request
       .updateUserPhoto(form.image.files[0], local.getUserId())
+      .finally(() => {
+        window.location.reload(false);
+      })
       .catch((error) => {
-        event.preventDefault();
         alert("Une erreur est survenus");
       });
   };
