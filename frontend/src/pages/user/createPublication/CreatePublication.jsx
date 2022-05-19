@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 // components
 import Aside from "../../../components/layout/aside/Aside";
 import MultipleBreadCrumb from "../../../components/layout/breadcrumb/multiples/MultipleBreadCrumb";
@@ -14,8 +14,10 @@ import * as db from "../../../services/axios/User";
 
 const CreatePublication = () => {
   const [user, setUser] = useState({});
+  const navigate = useNavigate();
   useEffect(() => {
     const id = local.getUserId();
+    if (!id) navigate("/auth");
     db.getUserById(id).then((user) => {
       setUser(user.data);
     });

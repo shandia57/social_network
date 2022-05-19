@@ -13,7 +13,7 @@ import LabelInput from "../../../components/custom/label-input/LabelInput";
 
 // Services functions
 import * as validation from "../../../services/validations/Input";
-import * as request from "../../../services/axios/Auth";
+import * as db from "../../../services/axios/Auth";
 import * as local from "../../../services/localStorage/AppLocalStorage";
 const Signin = () => {
   const navigate = useNavigate();
@@ -22,12 +22,11 @@ const Signin = () => {
     const form = event.target;
     const valideForm = validation.isValideForm(form);
     if (valideForm) {
-      request
-        .loginUser(form)
+      db.loginUser(form)
         .then((response) => {
           if (response.status === 200) {
             local.setUserId(response.data.userId);
-            navigate("/");
+            navigate("/home");
           }
         })
         .catch((error) => {
@@ -35,7 +34,10 @@ const Signin = () => {
         });
     }
   };
-
+  useEffect(() => {
+    const id = local.getUserId();
+    if (id) navigate("/home");
+  }, []);
   return (
     <div className="signin-page">
       <div className="container-img">

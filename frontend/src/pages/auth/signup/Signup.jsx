@@ -1,9 +1,8 @@
-import {useState, useEffect} from "react";
-import {Link} from "react-router-dom";
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 // images
-import logo from "./../../../images/logo/logo.svg"
+import logo from "./../../../images/logo/logo.svg";
 
 // css
 import "./css/style.css";
@@ -17,91 +16,101 @@ import LabelInput from "../../../components/custom/label-input/LabelInput";
 // Services functions
 import * as validation from "../../../services/validations/Input";
 import * as request from "../../../services/axios/User";
+import * as local from "../../../services/localStorage/AppLocalStorage";
+
 const Signup = () => {
-    
-    const [password, setPassword] = useState("");
-    const [success, Setsuccess] = useState("")
-    const navigate = useNavigate();
+  const [password, setPassword] = useState("");
+  const [success, Setsuccess] = useState("");
+  const navigate = useNavigate();
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const form = event.target;
-        const valideForm = validation.isValideForm(form);
-        if(valideForm){
-            request.createUser(form).then(response => {
-                Setsuccess("Votre compte a été créée avec succès");
-                navigate("/auth/signin");
-           }).catch(error => {
-               alert("Votre compte n'a pas pu être créée")
-               Setsuccess("");
-           })
-        }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const valideForm = validation.isValideForm(form);
+    if (valideForm) {
+      request
+        .createUser(form)
+        .then((response) => {
+          Setsuccess("Votre compte a été créée avec succès");
+          navigate("/auth/signin");
+        })
+        .catch((error) => {
+          alert("Votre compte n'a pas pu être créée");
+          Setsuccess("");
+        });
     }
+  };
 
-    return (
-        <div className="signup-page">
-            <div className="container-img">
-                <Link to="/auth"> 
-                    <img src={logo} alt="" /> 
-                </Link>
-                
-            </div>
+  useEffect(() => {
+    const id = local.getUserId();
+    if (id) navigate("/home");
+  }, []);
 
-            <div className="container-title-form">
-            <h1 className="text-center">Créer un compte</h1>
-            <p className="text-center">Vous n'êtes pas encore enregistré ? Inscrivez-vous !</p>
-            <p className="text-center success !">{success}</p>
-            <form onSubmit={handleSubmit}>
-                   <div className="signUpForm">
-                   <LabelInput  
-                        labelText="Nom"
-                        inputType="text"
-                        inputName="firstname"
-                        inputPlaceHolder="Votre nom"
-                    />
+  return (
+    <div className="signup-page">
+      <div className="container-img">
+        <Link to="/auth">
+          <img src={logo} alt="" />
+        </Link>
+      </div>
 
-                    <LabelInput  
-                        labelText="Prénom"
-                        inputType="text"
-                        inputName="lastname"
-                        inputPlaceHolder="Votre prénom"
-                    />
+      <div className="container-title-form">
+        <h1 className="text-center">Créer un compte</h1>
+        <p className="text-center">
+          Vous n'êtes pas encore enregistré ? Inscrivez-vous !
+        </p>
+        <p className="text-center success !">{success}</p>
+        <form onSubmit={handleSubmit}>
+          <div className="signUpForm">
+            <LabelInput
+              labelText="Nom"
+              inputType="text"
+              inputName="firstname"
+              inputPlaceHolder="Votre nom"
+            />
 
-                    <LabelInput  
-                        labelText="Email"
-                        inputType="email"
-                        inputName="email"
-                        inputPlaceHolder="Votre email"
-                    />
+            <LabelInput
+              labelText="Prénom"
+              inputType="text"
+              inputName="lastname"
+              inputPlaceHolder="Votre prénom"
+            />
 
-                    <LabelInput  
-                        labelText="Date de naissance"
-                        inputType="date"
-                        inputName="birthday"
-                        inputPlaceHolder=""
-                    />
+            <LabelInput
+              labelText="Email"
+              inputType="email"
+              inputName="email"
+              inputPlaceHolder="Votre email"
+            />
 
-                    <LabelInput  
-                        labelText="Mot de passe"
-                        inputType="password"
-                        inputName="password"
-                        inputPlaceHolder="Votre mot de passe"
-                        setValuePassword={setPassword}
-                    />
+            <LabelInput
+              labelText="Date de naissance"
+              inputType="date"
+              inputName="birthday"
+              inputPlaceHolder=""
+            />
 
-                    <LabelInput  
-                        labelText="Confirmation du mot de passe"
-                        inputType="password"
-                        inputName="passwordConfirm"
-                        inputPlaceHolder="Confirmez le mot de passe"
-                        password={password}
-                    />
-                    <ButtonSubmit text="Inscription" />
-                   </div>
-            </form>
-            </div>
-        </div>
-    );
-}
+            <LabelInput
+              labelText="Mot de passe"
+              inputType="password"
+              inputName="password"
+              inputPlaceHolder="Votre mot de passe"
+              setValuePassword={setPassword}
+            />
+
+            <LabelInput
+              labelText="Confirmation du mot de passe"
+              inputType="password"
+              inputName="passwordConfirm"
+              inputPlaceHolder="Confirmez le mot de passe"
+              password={password}
+            />
+            <ButtonSubmit text="Inscription" />
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
 
 export default Signup;

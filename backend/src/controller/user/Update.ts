@@ -13,6 +13,7 @@ exports.update = (request: any, results: any) => {
 
 exports.updatePhoto = (request: any, results: any) => {
 
+    // http://localhost:8000/images/default.png
     const profile = `${request.protocol}://${request.get('host')}/images/profile/${request.file.filename}`;
 
     connection.then(async connection => {

@@ -44,7 +44,7 @@ const Aside = (props) => {
           <p className="app-sidebar__user-name">
             {user.firstname} {user.lastname}
           </p>
-          <p className="app-sidebar__user-designation">Full stack</p>
+          {/* <p className="app-sidebar__user-designation">Full stack</p> */}
         </div>
       </div>
       <ul className="app-menu">

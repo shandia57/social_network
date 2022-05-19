@@ -33,7 +33,7 @@ const ModalUserDetails = ({ firstname, lastname, birthday, email }) => {
         .deleteUser(local.getUserId())
         .then((response) => {
           local.removeUserId();
-          navigate("/");
+          navigate("/auth");
         })
         .catch((error) => {
           alert("Oups, Une erreur est survenue");

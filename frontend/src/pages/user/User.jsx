@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // css
 import "./css/style.css";
@@ -19,9 +20,10 @@ import * as db from "../../services/axios/User";
 
 const User = () => {
   const [user, setUser] = useState({});
-
+  const navigate = useNavigate();
   useEffect(() => {
     const id = local.getUserId();
+    if (!id) navigate("/auth");
     db.getUserById(id).then((user) => {
       setUser(user.data);
     });

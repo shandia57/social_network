@@ -4,9 +4,6 @@ import { useState, useEffect } from "react";
 import SimpleButton from "../../custom/button/simpleButton/SimpleButton";
 import ModalPublications from "../../modal/user/publications/ModalPublication";
 import RowPublication from "../rowPublication/RowPublication";
-// icons
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit } from "@fortawesome/free-solid-svg-icons";
 
 const Publications = (props) => {
   return (
@@ -26,6 +23,7 @@ const Publications = (props) => {
               <th className="app-principal-color">Date de publication</th>
               <th className="app-principal-color">Nombre de like</th>
               <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -42,6 +40,13 @@ const Publications = (props) => {
               : null}
           </tbody>
         </table>
+        {props.publications !== undefined ? (
+          props.publications.length === 0 ? (
+            <div className="table-error-length">
+              Vous n'avez aucune publications
+            </div>
+          ) : null
+        ) : null}
       </div>
       <hr />
     </div>

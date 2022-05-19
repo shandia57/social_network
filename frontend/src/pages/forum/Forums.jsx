@@ -1,5 +1,5 @@
-import Aside from "../../../components/layout/aside/Aside";
-import SingleBreadCrumb from "../../../components/layout/breadcrumb/single/SingleBreadCrumb";
+import Aside from "../../components/layout/aside/Aside";
+import SingleBreadCrumb from "../../components/layout/breadcrumb/single/SingleBreadCrumb";
 
 const Forums = () => {
   return (

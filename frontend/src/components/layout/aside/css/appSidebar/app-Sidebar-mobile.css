@@ -1,14 +1,12 @@
-@media (min-width: 768px) {
-    .app.sidenav-toggled .app-content {
-        margin-left: 0;
+@media (max-width: 768px) {
+
+    .app-sidebar {
+        width: 0px;
     }
 
-    .app.sidenav-toggled .app-sidebar {
-        left: -230px;
-    }
-
-    .app.sidenav-toggled .app-sidebar__overlay {
-        visibility: hidden;
+    .app-sidebar__user-avatar {
+        width: 30px;
+        height: 30px;
     }
 
     .sidebar-mini.sidenav-toggled .app-sidebar__user-name,
@@ -17,63 +15,5 @@
         display: none;
     }
 
-    .sidebar-mini.sidenav-toggled .app-sidebar__user-avatar {
-        width: 30px;
-        height: 30px;
-    }
 
-    .sidebar-mini.sidenav-toggled .app-content {
-        margin-left: 50px;
-    }
-
-    .sidebar-mini.sidenav-toggled .app-sidebar {
-        left: 0;
-        width: 50px;
-        overflow: hidden;
-    }
-
-    .sidebar-mini.sidenav-toggled .app-sidebar:hover {
-        overflow: visible;
-    }
-}
-
-@media (max-width: 767px) {
-    .app {
-        overflow-x: hidden;
-    }
-
-    .app .app-sidebar {
-        left: -230px;
-    }
-
-    .app .app-sidebar__overlay {
-        visibility: hidden;
-    }
-
-    .app.sidenav-toggled .app-content {
-        margin-left: 0;
-    }
-
-    .app.sidenav-toggled .app-sidebar {
-        left: 0;
-    }
-
-    .app.sidenav-toggled .app-sidebar__overlay {
-        visibility: visible;
-    }
-
-    .app-sidebar__toggle {
-        -webkit-box-ordinal-group: 0;
-        -ms-flex-order: -1;
-        order: -1;
-    }
-
-    .app-sidebar__overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        z-index: 9;
-    }
 }

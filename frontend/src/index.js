@@ -14,8 +14,7 @@ import Home from './pages/home/Home';
 import User from './pages/user/User';
 import CreatePublication from './pages/user/createPublication/CreatePublication';
 import UpdatePublication from './pages/user/updatePublication/UpdatePublication';
-import Forums from './pages/forum/forums/Forums';
-import ForumsDetails from './pages/forum/forumDetails/ForumsDetails';
+import Forums from './pages/forum/Forums';
 import Empty from './components/layout/navigation/Empty';
 import NavBar from './components/layout/navigation/PrincipalNavigationBar';
 import Auth from './pages/auth/Auth';
@@ -33,7 +32,6 @@ root.render(
           <Route index element={<App />} />
           <Route path="/home" element={<Home />} />
           <Route path="/forums" element={<Forums />} />
-          <Route path="/forums/details" element={<ForumsDetails />} />
           <Route path="/user" element={<User />} />
           <Route path="/user/publication" element={<CreatePublication />} />
           <Route path="/user/publication/:id" element={<UpdatePublication />} />
