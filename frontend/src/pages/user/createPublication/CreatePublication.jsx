@@ -34,8 +34,13 @@ const CreatePublication = () => {
         <MultipleBreadCrumb
           title={`${user.firstname} ${user.lastname}`}
           icon={faUser}
-          linkName="Mon profil"
-          path="/user"
+          links={[
+            {
+              linkName: "Mon profil",
+              path: "/user",
+            },
+          ]}
+          endLink="Créer une publication"
         />
         <BodyCreatePublication />
       </div>

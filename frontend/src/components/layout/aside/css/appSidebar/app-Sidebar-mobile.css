@@ -1,7 +1,8 @@
 @media (max-width: 768px) {
 
     .app-sidebar {
-        width: 0px;
+        width: 0;
+        overflow: hidden;
     }
 
     .app-sidebar__user-avatar {
@@ -9,9 +10,8 @@
         height: 30px;
     }
 
-    .sidebar-mini.sidenav-toggled .app-sidebar__user-name,
-    .sidebar-mini.sidenav-toggled .app-sidebar__user-designation,
-    .sidebar-mini.sidenav-toggled .treeview-indicator {
+    .app-sidebar__user,
+    .app-menu {
         display: none;
     }
 

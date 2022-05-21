@@ -14,6 +14,7 @@ import * as validation from "../../..//services/validations/Input";
 
 //  CSS
 import "./css/style.css";
+import "./css/style-mobile.css";
 
 const BodyUpdatePublication = () => {
   const params = useParams();

@@ -1,12 +1,13 @@
+// React
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 // CSS
 import "./css/style.css";
+import "./css/style-mobile.css";
 
 // Components
 import HeaderProfile from "../../custom/headerProfile/HeaderProfile";
-import SimpleButton from "../../custom/button/simpleButton/SimpleButton";
 import Comments from "../comments/Comments";
 import Liked from "../liked/Liked";
 import ModalComments from "../../modal/home/comments/ModalComments";

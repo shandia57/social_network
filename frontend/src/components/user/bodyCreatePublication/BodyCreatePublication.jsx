@@ -8,7 +8,9 @@ import * as db from "../../../services/axios/Publications";
 import * as local from "../../../services/localStorage/AppLocalStorage";
 import * as validation from "../../..//services/validations/Input";
 
+// CSS
 import "./css/style.css";
+import "./css/style-mobile.css";
 
 const BodyCreatePublication = (props) => {
   const navigate = useNavigate();

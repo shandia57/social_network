@@ -40,8 +40,13 @@ const User = () => {
         <MultipleBreadCrumb
           title={`${user.firstname} ${user.lastname}`}
           icon={faUser}
-          linkName="Mon profil"
-          path="/user"
+          links={[
+            {
+              linkName: "Mon profil",
+              path: "/user",
+            },
+          ]}
+          endLink={`${user.firstname} ${user.lastname}`}
         />
 
         <div className="container">

@@ -35,8 +35,13 @@ const UpdatePublication = () => {
         <MultipleBreadCrumb
           title={`${user.firstname} ${user.lastname}`}
           icon={faUser}
-          linkName="Mon profil"
-          path="/user"
+          links={[
+            {
+              linkName: "Mon profil",
+              path: "/user",
+            },
+          ]}
+          endLink="Modifier une publication"
         />
         <BodyUpdatePublication />
       </div>

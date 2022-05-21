@@ -34,7 +34,7 @@ const Home = () => {
 
       <div className="app-content">
         <SingleBreadCrumb icon={faHome} title="Page d'accueil" />
-        <div>
+        <div className="app-content-body">
           {publications.map((publication, index) => (
             <Publication
               key={publication.id}

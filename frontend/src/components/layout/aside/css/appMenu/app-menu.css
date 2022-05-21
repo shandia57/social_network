@@ -1,7 +1,6 @@
-.app-menu {
-    margin-bottom: 0;
+/* .app-menu {
     padding-bottom: 40px;
-}
+} */
 
 .app-menu__button {
     position: relative;
@@ -28,12 +27,14 @@
 
 .app-menu__button:hover {
     background: #7b0e0e;
+    border-left-color: #d70f0f;
 }
 
 .app-menu__item {
     position: relative;
     display: -webkit-box;
     display: -ms-flexbox;
+    margin-bottom: 10px;
     display: flex;
     -webkit-box-align: center;
     -ms-flex-align: center;

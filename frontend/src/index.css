@@ -1,8 +1,11 @@
 body {
     background-color: #e0e0e0;
-    margin: 0;
-    height: 100vh;
-    overflow: hidden;
+    /* height: 100vh; */
+    font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    /* overflow: hidden; */
+
 }
 
 .success {
@@ -20,7 +23,17 @@ body {
 }
 
 .app-content {
-    overflow: scroll;
+    /* overflow: scroll; */
+    /* height: 100%; */
+}
+
+.app-content-body {
+    height: 100vh auto;
+}
+
+.emptyDiv {
+    margin-bottom: 5%;
+    height: 100px;
 }
 
 .no-decoration {
@@ -31,17 +44,3 @@ body {
 .app-principal-color {
     color: #1f447b;
 }
-
-/* 
-    Help to dev
-*/
-
-.red {
-    background-color: red;
-}
-
-.blue {
-    background-color: blue;
-}
-
-/* UCHUCHCUCH */

@@ -2,6 +2,9 @@ import SingleUserComment from "../../../home/singleUserComment/SingleUserComment
 import * as validation from "../../../../services/validations/Input";
 import * as db from "../../../../services/axios/Comments";
 import * as local from "../../../../services/localStorage/AppLocalStorage";
+
+// css
+import "./style.css";
 const ModalComments = (props) => {
   const handleSubmit = (event) => {
     const form = event.target;
@@ -51,12 +54,12 @@ const ModalComments = (props) => {
                 ))
               : "Aucun commentaire pour cette publication"}
           </div>
-          <div className="modal-footer">
+          <div className="modal__footer">
             <form onSubmit={handleSubmit}>
-              <div class="input-group mb-3">
+              <div class="input-group w-100 p-3 mb-3">
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control  "
                   placeholder="Rédiger un commentaire"
                   aria-label="Recipient's username"
                   aria-describedby="button-addon2"
