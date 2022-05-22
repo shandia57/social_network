@@ -73,6 +73,7 @@ const Publication = (props) => {
             />
             {props.userId === 1 ? (
               <FontAwesomeIcon
+                className="cursorPointer"
                 onClick={deletePublication}
                 color="red"
                 icon={faTrash}

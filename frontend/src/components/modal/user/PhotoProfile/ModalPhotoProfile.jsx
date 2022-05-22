@@ -1,4 +1,5 @@
 import LabelInput from "../../../custom/label-input/LabelInput";
+import InputFile from "../../../custom/inputFile/InputFile";
 
 import * as request from "../../../../services/axios/User";
 import * as local from "../../../../services/localStorage/AppLocalStorage";
@@ -42,13 +43,7 @@ const ModalPhotoProfile = ({ photo }) => {
           </div>
           <form onSubmit={handleSubmit}>
             <div className="modal-body">
-              <LabelInput
-                labelText="Nouvelle photo de profil"
-                inputType="file"
-                inputName="image"
-                inputPlaceHolder=""
-                initialValue=""
-              />
+              <InputFile labelText="Modifier votre photo profil" />
             </div>
             <div class="modal-footer">
               <button

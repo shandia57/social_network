@@ -1,6 +1,6 @@
 const nameRegx = /^[a-zA-Z-]{2,50}$/;
 const birthdayRegx = /^\d{4}([./-])\d{2}\1\d{2}$/;
-const emailRegx = /^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+const emailRegx = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+[.]+[a-zA-Z]/;
 const passwordRegx = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{6,20}/i;
 
 /*
@@ -11,34 +11,28 @@ const passwordRegx = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{6,20}/i;
     * (?=.*[a-z])       #   doit contenir une lettre minuscule
     * (?=.*[\W])        #   doit contenir un caractère spécial à la fin
     * {8,20}            #   doit contenir entre 8 et 20 caractères
-    * \S                #   doit contenir un caractère non-blanc
 */
 
 
 function validateName(name) {
-    // console.log("name : ", nameRegx.test(name))
     return nameRegx.test(name);
 }
 
 function validateBirthday(birthday) {
-    // console.log("birthday : ", birthday)
     return birthdayRegx.test(birthday);
 }
 
 function validateEmail(email) {
-    // console.log("email : ", emailRegx.test(email))
+    console.log(email)
     return emailRegx.test(email);
 }
 
 function validatePassword(password) {
-    // console.log("password : ", passwordRegx.test(password))
     return passwordRegx.test(password);
 }
 
 function validatePasswordConfirm(password, passwordConfirm) {
-    // console.log("confirm : ", password === passwordConfirm)
-    // console.log("password : ", password)
-    // console.log("passwordConfirm : ", passwordConfirm)
+
     return password === passwordConfirm;
 }
 

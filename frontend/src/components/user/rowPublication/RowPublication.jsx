@@ -39,6 +39,7 @@ const RowPublication = (props) => {
         <td>{likes}</td>
         <td>
           <FontAwesomeIcon
+            className="cursorPointer"
             onClick={() => {
               navigate("/user/publication/" + props.id);
             }}
@@ -47,6 +48,7 @@ const RowPublication = (props) => {
         </td>
         <td>
           <FontAwesomeIcon
+            className="cursorPointer"
             color="red"
             icon={faTrashAlt}
             onClick={handleDelete}

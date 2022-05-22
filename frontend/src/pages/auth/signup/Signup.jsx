@@ -65,14 +65,14 @@ const Signup = () => {
             <LabelInput
               labelText="Nom"
               inputType="text"
-              inputName="firstname"
+              inputName="lastname"
               inputPlaceHolder="Votre nom"
             />
 
             <LabelInput
               labelText="Prénom"
               inputType="text"
-              inputName="lastname"
+              inputName="firstname"
               inputPlaceHolder="Votre prénom"
             />
 

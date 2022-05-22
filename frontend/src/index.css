@@ -44,3 +44,7 @@ body {
 .app-principal-color {
     color: #1f447b;
 }
+
+.cursorPointer {
+    cursor: pointer;
+}
