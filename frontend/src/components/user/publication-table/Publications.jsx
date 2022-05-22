@@ -1,8 +1,5 @@
-import { useState, useEffect } from "react";
-
 // Components
 import SimpleButton from "../../custom/button/simpleButton/SimpleButton";
-import ModalPublications from "../../modal/user/publications/ModalPublication";
 import RowPublication from "../rowPublication/RowPublication";
 
 const Publications = (props) => {

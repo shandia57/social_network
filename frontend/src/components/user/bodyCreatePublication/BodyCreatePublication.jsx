@@ -1,10 +1,13 @@
-import { useState, useEffect } from "react";
+// React
 import { useNavigate } from "react-router-dom";
 
+// Components
 import LabelInput from "../../custom/label-input/LabelInput";
 import InputFile from "../../custom/inputFile/InputFile";
 import ButtonSubmit from "../../custom/button/submit/ButtonSubmit";
-import * as db from "../../../services/axios/Publications";
+
+// Services
+import * as axios from "../../../services/axios/Publications";
 import * as local from "../../../services/localStorage/AppLocalStorage";
 import * as validation from "../../..//services/validations/Input";
 
@@ -16,12 +19,15 @@ const BodyCreatePublication = (props) => {
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
+    // On empêche le rechargement de la page
     event.preventDefault();
     const form = event.target;
+    // On vérifie que le formulaire est valide
     const validationForm = validation.isValideForm(form);
     if (validationForm) {
+      // Si oui, on envoie la publication pour qu'elle soit ajouté en BDD
       const userId = local.getUserId();
-      db.createPublication(form, userId);
+      axios.createPublication(form, userId);
       navigate("/user");
     } else {
       alert("Le formulaire n'est pas valide");

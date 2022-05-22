@@ -1,5 +1,5 @@
+// Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import { faComment } from "@fortawesome/free-solid-svg-icons";
 
 const Comments = (props) => {

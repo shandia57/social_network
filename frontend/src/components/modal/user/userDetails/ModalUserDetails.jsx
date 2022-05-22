@@ -1,21 +1,27 @@
 import { useNavigate } from "react-router-dom";
 
+// Components
 import LabelInput from "../../../custom/label-input/LabelInput";
 import Spinner from "../../../layout/spinner/Spinner";
 
+// Services
 import * as validation from "../../../../services/validations/Input";
-import * as request from "../../../../services/axios/User";
+import * as axios from "../../../../services/axios/User";
 import * as local from "../../../../services/localStorage/AppLocalStorage";
 
 const ModalUserDetails = ({ firstname, lastname, birthday, email }) => {
   const navigate = useNavigate();
 
+  // Fonction qui permet de récupérer les données envoyés
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
+    // On vérifie que le formulaire est valide
     const valideForm = validation.isValideForm(form);
+
+    // Si oui, on récupère l'ID de l'utilisateur pour envoyer les données en BDD
     if (valideForm) {
-      request
+      axios
         .updateUser(form, local.getUserId())
         .finally(() => window.location.reload(false))
         .catch((error) => {
@@ -24,12 +30,13 @@ const ModalUserDetails = ({ firstname, lastname, birthday, email }) => {
     }
   };
 
+  // Fonction qui permet de supprimer le compte de l'utilisateur
   const deleteAccount = () => {
     let response = window.confirm(
       "Êtes-vous sûr de vouloir supprimer votre compte ?"
     );
     if (response) {
-      request
+      axios
         .deleteUser(local.getUserId())
         .then((response) => {
           local.removeUserId();
@@ -40,6 +47,8 @@ const ModalUserDetails = ({ firstname, lastname, birthday, email }) => {
         });
     }
   };
+  // On vérifie si le state n'est pas undifined
+  // Car il y a quelques problèmes de synchronisation entre le temps ou l'on récupère les données et le temps ou l'on affiche le modal
   if (firstname !== undefined) {
     return (
       <div

@@ -1,16 +1,26 @@
+// React
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import * as local from "../../services/localStorage/AppLocalStorage";
+// Component
+import BlackLink from "../../components/custom/link/BlackLink";
 
-import logo from "../../images/logo/logo.svg";
+// CSS
 import "./css/style.css";
 import "./css/style-mobile.css";
 import "./css/style-tab.css";
 
-import BlackLink from "../../components/custom/link/BlackLink";
+// Logo de l'entrepruse
+import logo from "../../images/logo/logo.svg";
+
+// Services
+import * as local from "../../services/localStorage/AppLocalStorage";
+
 const Auth = () => {
   const navigate = useNavigate();
+
+  // On redirige l'utilisateur si son ID n'est pas trouvé dans le localStorage
+  // Soit il est déjà connecté, soit il n'a pas encore de compte
   useEffect(() => {
     const id = local.getUserId();
     if (id) navigate("/home");

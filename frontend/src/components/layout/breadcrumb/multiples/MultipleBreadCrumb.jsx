@@ -9,6 +9,8 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 import "./css/style.css";
 import "./css/style-mobile.css";
 
+// Permet d'affiche un fil d'ariane multiple, comme pour la page user
+
 const MultipleBreadCrumb = ({ title, icon, links, endLink }) => {
   return (
     <div className="app-title">
@@ -24,6 +26,13 @@ const MultipleBreadCrumb = ({ title, icon, links, endLink }) => {
             <FontAwesomeIcon icon={faHome} />
           </Link>
         </li>
+
+        {/* 
+
+        Ici on affiche tous les liens passés en props
+        
+        */}
+
         {links.map((link, index) => (
           <li className="breadcrumb-item">
             <Link className="link no-decoration" to={link.path}>

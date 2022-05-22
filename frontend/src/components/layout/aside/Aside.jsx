@@ -7,14 +7,20 @@ import "./css/appSidebar/app-Sidebar-mobile.css";
 import "./css/appMenu/app-menu.css";
 
 import * as local from "../../../services/localStorage/AppLocalStorage";
-import * as db from "../../../services/axios/User";
+import * as axios from "../../../services/axios/User";
 
 const Aside = (props) => {
+  // On récupère l'ID de l'utilisateur pour pouvoir afficher ses données
+
   const userId = local.getUserId();
   const [user, setUser] = useState({});
+
+  // Navigate permet la redirection
   const navigate = useNavigate();
+  // Location permet de vérifie sur quelle page l'utilisateur se situe, pour pouvoir afficher le bon menu en ACTIVE
   const location = useLocation();
 
+  // Permet la déconnexion de l'utilisateur
   const logout = () => {
     const confirmation = window.confirm(
       "Êtes-vous sûr de vouloir vous déconnecter ?"
@@ -25,8 +31,9 @@ const Aside = (props) => {
     }
   };
 
+  // Lorsque la page se charge, on récupère les données de l'utilisateur
   useEffect(() => {
-    db.getUserById(userId).then((res) => {
+    axios.getUserById(userId).then((res) => {
       setUser(res.data);
     });
   }, []);
@@ -58,6 +65,15 @@ const Aside = (props) => {
             <span className="app-menu__label">Page d'accueil</span>
           </Link>
         </li>
+
+        {/* 
+        
+        Si l'utilisateur se trouve sur la route suivantes
+          /user/publication/create
+          /user/publication/update
+          On utilise la methode split pourvoir récupérer uniquement le 'user' de la route complète
+        
+        */}
         <li>
           <Link
             className={

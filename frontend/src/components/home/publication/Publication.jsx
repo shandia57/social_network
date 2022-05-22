@@ -12,33 +12,43 @@ import Comments from "../comments/Comments";
 import Liked from "../liked/Liked";
 import ModalComments from "../../modal/home/comments/ModalComments";
 import Spinner from "../../layout/spinner/Spinner";
-// Services
-import * as local from "../../../services/localStorage/AppLocalStorage";
-import * as db from "../../../services/axios/Comments";
-import * as db_like from "../../../services/axios/Like";
-import * as db_publication from "../../../services/axios/Publications";
+
+// Services axios
+import * as axios_commentaire from "../../../services/axios/Comments";
+import * as axios_like from "../../../services/axios/Like";
+import * as axios_publication from "../../../services/axios/Publications";
 
 // icon
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const Publication = (props) => {
+  // On déclaire les STATES
   const [comments, setComments] = useState([]);
   const [userLiked, setUserLiked] = useState([]);
+
+  // Permet de la redirection vers d'autres pages ciblés
   const navigate = useNavigate();
 
+  // On récupère les commentaire de la publication lorsque l'utilisateur click sur l'icon
   const handleClickComments = () => {
-    db.getCommentsByPublicationId(props.publicationId).then((res) => {
-      setComments(res.data);
-    });
+    axios_commentaire
+      .getCommentsByPublicationId(props.publicationId)
+      .then((res) => {
+        setComments(res.data);
+      });
   };
 
+  // Fonction pour supprimer la publication
   const deletePublication = () => {
+    // On affiche un message de confirmation si l'utilisateur souhaite vraiment supprimer la publication
     const confirmDelete = window.confirm(
       "Voulez-vous vraiment supprimer cette publication ?"
     );
+
+    // Si oui, on supprime la publication
     if (confirmDelete) {
-      db_publication
+      axios_publication
         .deletePublication(props.publicationId)
         .then(() => {
           navigate("/");
@@ -50,8 +60,12 @@ const Publication = (props) => {
   };
 
   useEffect(() => {
+    // On vérifie si la publication n'est pas undifined
+    // Car il y a un problème de synchronisation entre le temps où la page est chargé, et le temps où on récupère les données de la BDD
+
     if (props.publicationId !== undefined) {
-      db_like.getLikeByPublicationId(props.publicationId).then((res) => {
+      // On récupères tous les utilisateurs qu'ont liké la publication
+      axios_like.getLikeByPublicationId(props.publicationId).then((res) => {
         const array = [];
         res.data.forEach((user) => {
           array.push(user.user.id);

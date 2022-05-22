@@ -13,7 +13,13 @@ exports.create = (request: any, results: any) => {
 }
 
 exports.createWithImage = (request: any, results: any) => {
-    const profile = `${request.protocol}://${request.get('host')}/images/publications/${request.file.filename}`;
+    const profile = `${request.protocol}://${request.get('host')}/images/publications/${request.file.filename}`
+
+    // Je récupère l'image grâce au middleware, puis je reconstitue la nouvelle URL de l'image
+    //  De cette façon
+    // http://localhost:8000/images/profile/nom_de_l_image.jpg
+    // L'image sera lue par une URL
+
     connection
         .then(async connection => {
             repository.InsertPublication(request.body, connection, profile)

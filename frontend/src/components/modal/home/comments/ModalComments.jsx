@@ -1,17 +1,23 @@
+// Components
 import SingleUserComment from "../../../home/singleUserComment/SingleUserComment";
+
+// Services
 import * as validation from "../../../../services/validations/Input";
-import * as db from "../../../../services/axios/Comments";
+import * as axios from "../../../../services/axios/Comments";
 import * as local from "../../../../services/localStorage/AppLocalStorage";
 
 // css
 import "./style.css";
 const ModalComments = (props) => {
+  // Fonction qui permet de récupérer le commentaire envoyé
   const handleSubmit = (event) => {
     const form = event.target;
+    // On vérifie que le formulaire est valide
     const validate = validation.isValideForm(form);
     if (validate) {
+      // Si oui, on récupère l'ID de l'utilisateur pour envoyer le commentaire en BDD qu'on liera également à la publication
       const userId = local.getUserId();
-      db.insertComment(form.comment.value, userId, props.publicationId);
+      axios.insertComment(form.comment.value, userId, props.publicationId);
     } else {
       event.preventDefault();
     }
@@ -39,6 +45,7 @@ const ModalComments = (props) => {
             ></button>
           </div>
           <div className="modal-body">
+            {/* On affiche tous les commentaires */}
             {props.comments.length > 0
               ? props.comments.map((comment) => (
                   <SingleUserComment

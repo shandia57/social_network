@@ -1,21 +1,22 @@
-import { useNavigate } from "react-router-dom";
+// CSS
 import "./css/style.css";
 
 // icon
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
-import * as db from "../../../services/axios/Comments";
+// Fonction AXIOS du fichier Comments du dossier Services
+import * as axios from "../../../services/axios/Comments";
 
 const SingleUserComment = (props) => {
-  const navigate = useNavigate();
-
+  // Fonction qui permet la suppression du commentaire
   const deleteComment = () => {
     const confirmDelete = window.confirm(
       "Voulez-vous vraiment supprimer ce commentaire ?"
     );
     if (confirmDelete) {
-      db.deleteComment(props.commentId)
+      axios
+        .deleteComment(props.commentId)
         .finally(() => {
           window.location.reload(false);
         })

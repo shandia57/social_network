@@ -14,8 +14,12 @@ exports.update = (request: any, results: any) => {
 
 exports.updatePhoto = (request: any, results: any) => {
 
-    // http://localhost:8000/images/default.png
+
     const profile = `${request.protocol}://${request.get('host')}/images/profile/${request.file.filename}`;
+    // Je récupère l'image grâce au middleware, puis je reconstitue la nouvelle URL de l'image
+    //  De cette façon
+    // http://localhost:8000/images/profile/nom_de_l_image.jpg
+    // L'image sera lue par une URL
 
     connection.then(async connection => {
         repository.updateUserProfile(request, connection, profile)

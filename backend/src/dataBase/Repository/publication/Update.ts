@@ -3,13 +3,15 @@ import { User } from "../../entity/User";
 import { Publication } from "../../entity/Publication";
 
 export async function updatePublication(request, connection) {
-
+    // On récupère la publication à modifier
     let publicationRepository = connection.getRepository(Publication);
     const publication = await publicationRepository.findOne(request.params.id);
 
+    // On modifie la publication
     publication.title = request.body.title;
     publication.text = request.body.text;
 
+    // On enregistre la publication
     return await publicationRepository.save(publication)
         .then(() => {
             console.log(`[${publication.id}] has been correctly added into publications`);

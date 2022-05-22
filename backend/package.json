@@ -9,6 +9,7 @@
       "typescript": "4.5.2"
    },
    "dependencies": {
+      "@hapi/joi": "^17.1.1",
       "bcrypt": "^5.0.1",
       "body-parser": "^1.19.2",
       "cors": "^2.8.5",
@@ -22,9 +23,6 @@
    },
    "scripts": {
       "start": "ts-node src/index.ts",
-      "load:users": "ts-node src/dataBase/fixtures/loadUsers.ts",
-      "load:publications": "ts-node src/dataBase/fixtures/loadPublications.ts",
-      "load:comments": "ts-node src/dataBase/fixtures/loadComments.ts",
       "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js"
    }
 }

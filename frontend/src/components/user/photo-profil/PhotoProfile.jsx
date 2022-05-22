@@ -1,5 +1,5 @@
+// Component
 import ModalPhotoProfile from "./../../modal/user/PhotoProfile/ModalPhotoProfile";
-import * as local from "../../../services/localStorage/AppLocalStorage";
 
 const PhotoProfile = (props) => {
   return (

@@ -1,17 +1,22 @@
+// Import react
 import { useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 
-// icon
+// icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+
+// CSS
 import "./css/style.css";
 
-// images
+// Logo de l'entreprise
 import logo2 from "./../../../images/logo/logo-white.svg";
 
 const NavBar = () => {
+  // States
   const [isActiveAside, setIsActiveAside] = useState(false);
 
+  // Les fonction displayAside et hideAside permet simplement d'afficher ou non l'Aside de la page pour assurer le responsive
   const displayAside = () => {
     const sidebar = document.querySelector(".app-sidebar");
     const sidebarUser = document.querySelector(".app-sidebar__user");
@@ -30,6 +35,8 @@ const NavBar = () => {
     sidebarMenu.style.display = "none";
   };
 
+  // Lorsque la page de redimenssioner on veille à ce que l'Aside soit afficher ou non
+
   window.addEventListener("resize", () => {
     if (window.innerWidth < 1100) {
       hideAside();
@@ -38,6 +45,7 @@ const NavBar = () => {
     }
   });
 
+  // Lorsque l'on clique sur le bouton de la navbar, on affiche ou non l'Aside
   const handleClick = () => {
     if (isActiveAside) {
       setIsActiveAside(!isActiveAside);

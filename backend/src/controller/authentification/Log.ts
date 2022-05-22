@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 
 
 exports.login = (request: any, results: any) => {
+
     connection.then(async connection => {
         repository.loginWithEmail(request, connection, results)
             .then(response => {

@@ -1,30 +1,40 @@
+// React
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
+// Logo
 import logo from "./../../../images/logo/logo.svg";
 
+// CSS
 import "./css/style.css";
 import "./css/style-mobile.css";
 import "./css/style-tab.css";
 
+// Component
 import ButtonSubmit from "../../../components/custom/button/submit/ButtonSubmit";
 import LabelInput from "../../../components/custom/label-input/LabelInput";
 
 // Services functions
 import * as validation from "../../../services/validations/Input";
-import * as db from "../../../services/axios/Auth";
+import * as axios from "../../../services/axios/Auth";
 import * as local from "../../../services/localStorage/AppLocalStorage";
+
 const Signin = () => {
   const navigate = useNavigate();
+
+  // Peremt de récupérer les données du formulaire de connexion
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
+    // On vérifie que le formulaire est valide
     const valideForm = validation.isValideForm(form);
     if (valideForm) {
-      db.loginUser(form)
+      // Si oui, on connecte l'utilisateur
+      axios
+        .loginUser(form)
         .then((response) => {
           if (response.status === 200) {
+            // Si la connexion est réussie, on stocke les données de l'utilisateur dans le localStorage
             local.setUserId(response.data.userId);
             navigate("/home");
           }
@@ -32,8 +42,13 @@ const Signin = () => {
         .catch((error) => {
           alert("Echec de connexion");
         });
+    } else {
+      alert("Echec de connexion");
     }
   };
+
+  // On redirige l'utilisateur si son ID n'est pas trouvé dans le localStorage
+  // Soit il est déjà connecté, soit il n'a pas encore de compte
   useEffect(() => {
     const id = local.getUserId();
     if (id) navigate("/home");

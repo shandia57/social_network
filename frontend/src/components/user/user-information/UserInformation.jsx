@@ -1,5 +1,6 @@
+// Component
 import ModalUserDetails from "./../../modal/user/userDetails/ModalUserDetails";
-import * as local from "../../../services/localStorage/AppLocalStorage";
+
 const UserInformation = (props) => {
   return (
     <>

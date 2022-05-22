@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // css
 import "./css/style.css";
 
+// On affiche un simple fil d'ariane comme pour la page d'accueil
 const SingleBreadCrumb = ({ title, link, icon }) => {
   return (
     <div class="app-title">

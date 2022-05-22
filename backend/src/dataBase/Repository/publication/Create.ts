@@ -5,9 +5,11 @@ import { Publication } from "../../entity/Publication";
 
 export async function InsertPublication(request, connection, image) {
 
+    // On récupère l'utilisateur pour pouvoir lié une publication à un utilisaateur
     let userRepository = connection.getRepository(User);
     const user = await userRepository.findOne(request.userId);
 
+    // On créer la publication avec les données envoyés
     const publication = new Publication();
     publication.title = request.title;
     publication.text = request.text;
@@ -15,7 +17,7 @@ export async function InsertPublication(request, connection, image) {
     publication.image = image ?? null;
     publication.user = user;
 
-    // get repository
+    // On se connecte  à la BDD pour envoyer les données
     let publicationRepository = connection.getRepository(Publication);
 
     return await publicationRepository.save(publication)

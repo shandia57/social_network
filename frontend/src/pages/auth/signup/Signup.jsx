@@ -15,7 +15,7 @@ import LabelInput from "../../../components/custom/label-input/LabelInput";
 
 // Services functions
 import * as validation from "../../../services/validations/Input";
-import * as request from "../../../services/axios/User";
+import * as axios from "../../../services/axios/User";
 import * as local from "../../../services/localStorage/AppLocalStorage";
 
 const Signup = () => {
@@ -23,15 +23,20 @@ const Signup = () => {
   const [success, Setsuccess] = useState("");
   const navigate = useNavigate();
 
+  // On récupère les données du formulaire de création de compte
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
+    // On vérifie que le formulaire est valide
     const valideForm = validation.isValideForm(form);
+
     if (valideForm) {
-      request
+      // Si oui, on crée le compte
+      axios
         .createUser(form)
         .then((response) => {
           Setsuccess("Votre compte a été créée avec succès");
+          // On regirige vers la page de connextion lorque le compte a été créé
           navigate("/auth/signin");
         })
         .catch((error) => {
@@ -41,6 +46,8 @@ const Signup = () => {
     }
   };
 
+  // On redirige l'utilisateur si son ID n'est pas trouvé dans le localStorage
+  // Soit il est déjà connecté, soit il n'a pas encore de compte
   useEffect(() => {
     const id = local.getUserId();
     if (id) navigate("/home");

@@ -1,15 +1,18 @@
+// React
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+// Component
 import Aside from "../../components/layout/aside/Aside";
-import Spinner from "../../components/layout/spinner/Spinner";
 import SingleBreadCrumb from "../../components/layout/breadcrumb/single/SingleBreadCrumb";
 import Publication from "../../components/home/publication/Publication";
 
+// Icons
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 
-import * as db_publications from "../../services/axios/Publications";
-import * as db_user from "../../services/axios/User";
+// Services
+import * as axios_publication from "../../services/axios/Publications";
+import * as axios_user from "../../services/axios/User";
 import * as local from "../../services/localStorage/AppLocalStorage";
 
 const Home = () => {
@@ -17,14 +20,17 @@ const Home = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const navigate = useNavigate();
 
+  // On redirige l'utilisateur si son ID n'est pas trouvé dans le localStorage
+  // Soit il est déjà connecté, soit il n'a pas encore de compte
   useEffect(() => {
     const id = local.getUserId();
     if (!id) navigate("/auth");
-    db_user.getUserById(id).then((user) => {
+    axios_user.getUserById(id).then((user) => {
       setCurrentUser(user.data.login.isAdmin);
     });
 
-    db_publications.getAllPublications().then((res) => {
+    // On récupère toutes les publications
+    axios_publication.getAllPublications().then((res) => {
       setPublications(res.data);
     });
   }, []);

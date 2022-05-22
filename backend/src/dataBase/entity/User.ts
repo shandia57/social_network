@@ -25,18 +25,23 @@ export class User {
     @Column({ type: "text" })
     profile: string;
 
+
+    // OneToMany permet de faire la relation entre les deux entités Users avec Comments
     @OneToMany(() => Comment, comment => comment.user)
     @JoinColumn()
     comments: Comment[];
 
+    // OneToMany permet de faire la relation entre les deux entités Users avec Like
     @OneToMany(() => Like, like => like.user)
     @JoinColumn()
     likes: Like[];
 
+    // OneToMany permet de faire la relation entre les deux entités Users avec Publications
     @OneToMany(() => Publication, publication => publication.user)
     @JoinColumn()
     publications: Publication[];
 
+    // OneToOne permet de faire la relation entre les deux entités Users avec Login
     @OneToOne(() => Login)
     @JoinColumn()
     login: Login;
