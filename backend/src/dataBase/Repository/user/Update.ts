@@ -3,25 +3,25 @@ import { User } from "../../entity/User";
 
 export async function updateUser(request, connection, id) {
 
-    let bool = true;
-
     let userRepository = connection.getRepository(User);
     const user = await userRepository.findOne(id);
+
+
     user.firstname = request.body.firstname;
     user.lastname = request.body.lastname;
-    user.address = request.body.address;
+    user.email = request.body.email;
     user.birthday = new Date(request.body.birthday);
 
-    await userRepository.save(user)
+    return await userRepository.save(user)
         .then(() => {
             console.log("Updated user with id: " + user.id);
-
+            return true;
         })
         .catch(err => {
-            bool = false;
+            console.log("error : ", err)
+            return false
         })
 
-    return bool;
 }
 
 
@@ -34,14 +34,15 @@ export async function updateUserProfile(request, connection, profile) {
 
     console.log("profile: " + user.profile);
 
-    await userRepository.save(user)
+    return await userRepository.save(user)
         .then(() => {
             console.log("Updated user with id: " + user.id);
+            return true;
         })
         .catch(err => {
-            bool = false;
-            console.log(err)
+            console.log("error : ", err)
+            return false
+
         })
 
-    return bool;
 }

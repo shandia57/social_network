@@ -51,7 +51,7 @@ const User = () => {
 
         <div className="container">
           <div className="row">
-            <div className="col-md-4">
+            <div className="col-md-5">
               <PhotoProfile profile={user.profile} />
               <UserInformation
                 firstname={user.firstname}
@@ -61,7 +61,7 @@ const User = () => {
               />
             </div>
 
-            <div className="col-md-8">
+            <div className="col-md-7">
               <Publications publications={user.publications} />
             </div>
           </div>

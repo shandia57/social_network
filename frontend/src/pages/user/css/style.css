@@ -13,6 +13,7 @@
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
+    overflow-x: scroll;
 }
 
 @media print {
@@ -37,82 +38,4 @@
 .tile .btn-info {
     background-color: #1f447b;
     color: #fff;
-}
-
-.tile.small {
-    padding: 0;
-}
-
-.tile .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: rgba(255, 255, 255, 0.9);
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    color: #555;
-    border-radius: 3px;
-}
-
-.tile .overlay .l-text {
-    font-size: 24px;
-    margin-top: 15px;
-}
-
-.tile .tile-title {
-    margin-top: 0;
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-    text-align: center;
-}
-
-.tile .tile-title-w-btn {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.tile .tile-title-w-btn p {
-    margin: 0;
-}
-
-.tile .tile-title-w-btn .title {
-    margin: 0;
-}
-
-.tile .tile-title-w-btn .side {
-    margin-bottom: 0;
-    padding-left: 0;
-}
-
-.tile .tile-title-w-btn .btn-group {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-}
-
-.tile .tile-footer {
-    border-top: 1px solid #ddd;
-    padding: 20px 0 0 0;
-    margin-top: 10px;
 }
